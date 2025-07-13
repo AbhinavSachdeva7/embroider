@@ -1,0 +1,4 @@
+--- Retrieved (Rank 4) ---
+Query: 'pose_pressure_input'
+Shuffled Idx: 14389
+Original Idx: 16245

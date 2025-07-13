@@ -1,0 +1,3 @@
+--- Query ---
+Shuffled Idx: 0
+Original Idx: 2043

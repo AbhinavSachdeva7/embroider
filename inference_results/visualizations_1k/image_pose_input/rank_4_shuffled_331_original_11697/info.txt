@@ -1,0 +1,4 @@
+--- Retrieved (Rank 4) ---
+Query: 'image_pose_input'
+Shuffled Idx: 331
+Original Idx: 11697

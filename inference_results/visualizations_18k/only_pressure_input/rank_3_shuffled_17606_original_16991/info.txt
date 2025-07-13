@@ -1,0 +1,4 @@
+--- Retrieved (Rank 3) ---
+Query: 'only_pressure_input'
+Shuffled Idx: 17606
+Original Idx: 16991

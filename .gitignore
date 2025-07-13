@@ -1,0 +1,14 @@
+src/__pycache__/
+src/data_loader/__pycache__/
+
+src/data/
+src/checkpoints/
+
+src/encoder/__pycache__/
+src/test_files/
+
+src/transformer/__pycache__/
+
+__pycache__/
+
+src/pretrained_weights/

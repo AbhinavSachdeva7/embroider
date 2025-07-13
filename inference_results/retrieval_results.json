@@ -1,0 +1,163 @@
+{
+  "only_image_input": {
+    "retrieve_image": [
+      557,
+      327,
+      897,
+      324,
+      29
+    ],
+    "retrieve_pose": [
+      234,
+      778,
+      860,
+      441,
+      696
+    ],
+    "retrieve_pressure": [
+      730,
+      988,
+      235,
+      881,
+      73
+    ]
+  },
+  "only_pose_input": {
+    "retrieve_image": [
+      439,
+      928,
+      845,
+      865,
+      742
+    ],
+    "retrieve_pose": [
+      0,
+      866,
+      408,
+      737,
+      919
+    ],
+    "retrieve_pressure": [
+      730,
+      988,
+      235,
+      881,
+      73
+    ]
+  },
+  "only_pressure_input": {
+    "retrieve_image": [
+      169,
+      429,
+      439,
+      841,
+      167
+    ],
+    "retrieve_pose": [
+      454,
+      76,
+      483,
+      696,
+      408
+    ],
+    "retrieve_pressure": [
+      305,
+      949,
+      420,
+      0,
+      603
+    ]
+  },
+  "image_pose_input": {
+    "retrieve_image": [
+      557,
+      327,
+      841,
+      331,
+      324
+    ],
+    "retrieve_pose": [
+      0,
+      408,
+      866,
+      737,
+      429
+    ],
+    "retrieve_pressure": [
+      730,
+      988,
+      235,
+      881,
+      73
+    ]
+  },
+  "image_pressure_input": {
+    "retrieve_image": [
+      327,
+      841,
+      167,
+      779,
+      557
+    ],
+    "retrieve_pose": [
+      696,
+      778,
+      860,
+      300,
+      293
+    ],
+    "retrieve_pressure": [
+      305,
+      104,
+      949,
+      114,
+      420
+    ]
+  },
+  "pose_pressure_input": {
+    "retrieve_image": [
+      169,
+      429,
+      841,
+      439,
+      167
+    ],
+    "retrieve_pose": [
+      408,
+      866,
+      454,
+      0,
+      76
+    ],
+    "retrieve_pressure": [
+      114,
+      104,
+      603,
+      420,
+      337
+    ]
+  },
+  "full_input": {
+    "retrieve_image": [
+      841,
+      327,
+      167,
+      779,
+      720
+    ],
+    "retrieve_pose": [
+      408,
+      866,
+      0,
+      454,
+      696
+    ],
+    "retrieve_pressure": [
+      114,
+      603,
+      305,
+      104,
+      420
+    ]
+  }
+}

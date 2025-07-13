@@ -1,0 +1,4 @@
+--- Retrieved (Rank 4) ---
+Query: 'only_image_input'
+Shuffled Idx: 324
+Original Idx: 11705

@@ -1,0 +1,6 @@
+Retrieved Index: 411
+Rank: 4
+Query Test: Pose Only
+Image Shape: torch.Size([3, 256, 192])
+Pose Shape: torch.Size([66])
+Pressure Shape: torch.Size([2520])

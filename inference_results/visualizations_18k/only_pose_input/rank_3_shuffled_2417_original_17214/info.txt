@@ -1,0 +1,4 @@
+--- Retrieved (Rank 3) ---
+Query: 'only_pose_input'
+Shuffled Idx: 2417
+Original Idx: 17214

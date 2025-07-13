@@ -1,0 +1,4 @@
+--- Retrieved (Rank 3) ---
+Query: 'image_pressure_input'
+Shuffled Idx: 3690
+Original Idx: 9296

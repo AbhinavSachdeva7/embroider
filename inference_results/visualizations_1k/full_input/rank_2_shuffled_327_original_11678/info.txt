@@ -1,0 +1,4 @@
+--- Retrieved (Rank 2) ---
+Query: 'full_input'
+Shuffled Idx: 327
+Original Idx: 11678
