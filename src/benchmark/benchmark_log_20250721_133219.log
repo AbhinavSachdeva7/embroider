@@ -1,0 +1,7 @@
+2025-07-21 13:32:19,505 - INFO - Using device: cuda
+2025-07-21 13:32:21,406 - INFO - Loaded model from /scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_30.pth
+2025-07-21 13:32:21,406 - INFO - Loading consolidated metadata from: /scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/ALL_DATA.pt
+2025-07-21 13:32:27,412 - INFO - Dataset initialized successfully. Total samples: 1309385
+2025-07-21 13:32:27,502 - INFO - Test dataset size: 261877
+2025-07-21 13:32:27,502 - INFO - Step 1: Computing/Loading collection features...
+2025-07-21 13:32:27,502 - INFO - Computing collection features (ground truth embeddings)...

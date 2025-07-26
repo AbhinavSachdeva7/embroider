@@ -17,8 +17,9 @@ LATENT_D = 512
 # --- Model Parameters ---
 NB_INPUT_JOINTS = 22 # From the original PoseEmbroider config
 
-TRAIN_DATA_DIR = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/combined/"
-SOURCE_DATA_ROOT = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/"
+DATA_FILE = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/ALL_DATA.pt"
+
+CHECKPOINT_DIR = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints"
 
 
 # --- Utility Functions ---

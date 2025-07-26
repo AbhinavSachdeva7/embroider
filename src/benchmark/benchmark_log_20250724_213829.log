@@ -1,0 +1,53 @@
+2025-07-24 21:38:29,668 - INFO - Using device: cuda
+2025-07-24 21:38:31,338 - INFO - Loaded model from /scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_44.pth
+2025-07-24 21:38:31,338 - INFO - Loading consolidated metadata from: /scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/ALL_DATA.pt
+2025-07-24 21:38:37,953 - INFO - Dataset initialized successfully. Total samples: 1309385
+2025-07-24 21:38:38,023 - INFO - Test dataset size: 261877
+2025-07-24 21:38:38,023 - INFO - Step 1: Computing/Loading collection features...
+2025-07-24 21:38:38,023 - INFO - Computing collection features (ground truth embeddings)...
+2025-07-24 23:12:58,817 - INFO - Features saved to: /scratch/avs7793/work_done/poseembroider/new_model/src/features_cache_44/collection_features.pt
+2025-07-24 23:12:58,922 - INFO - Step 2: Computing/Loading retrieval features...
+2025-07-24 23:12:58,922 - INFO - Computing retrieval features (fusion transformer outputs)...
+2025-07-24 23:48:04,462 - INFO - Features saved to: /scratch/avs7793/work_done/poseembroider/new_model/src/features_cache_44/retrieval_features.pt
+2025-07-24 23:48:04,520 - INFO - Step 3: Calculating recall metrics...
+2025-07-24 23:48:04,521 - INFO - ==================================================
+2025-07-24 23:48:04,521 - INFO - SINGLE-MODALITY QUERIES
+2025-07-24 23:48:04,521 - INFO - ==================================================
+2025-07-24 23:48:04,521 - INFO - Computing image → pose recall...
+2025-07-25 01:06:37,315 - INFO - METRIC CALCULATED - image→pose_: {'image→pose_R@1': 7.385910179206269, 'image→pose_R@5': 31.221527663750535, 'image→pose_R@10': 51.22213863760467}
+2025-07-25 01:06:37,315 - INFO - AVERAGE RECALL for image→pose_: 29.94%
+2025-07-25 01:06:37,315 - INFO - Computing image → pressure recall...
+2025-07-25 02:25:11,576 - INFO - METRIC CALCULATED - image→pressure_: {'image→pressure_R@1': 1.4476261756473459, 'image→pressure_R@5': 6.895603661260822, 'image→pressure_R@10': 12.826632350301859}
+2025-07-25 02:25:11,576 - INFO - AVERAGE RECALL for image→pressure_: 7.06%
+2025-07-25 02:25:11,576 - INFO - Computing pose → image recall...
+2025-07-25 03:44:34,070 - INFO - METRIC CALCULATED - pose→image_: {'pose→image_R@1': 5.808833918213512, 'pose→image_R@5': 25.317992798145696, 'pose→image_R@10': 42.922822546462655}
+2025-07-25 03:44:34,070 - INFO - AVERAGE RECALL for pose→image_: 24.68%
+2025-07-25 03:44:34,070 - INFO - Computing pose → pressure recall...
+2025-07-25 05:03:08,396 - INFO - METRIC CALCULATED - pose→pressure_: {'pose→pressure_R@1': 2.3331564054880727, 'pose→pressure_R@5': 10.765359309905032, 'pose→pressure_R@10': 19.632499226736215}
+2025-07-25 05:03:08,396 - INFO - AVERAGE RECALL for pose→pressure_: 10.91%
+2025-07-25 05:03:08,396 - INFO - Computing pressure → image recall...
+2025-07-25 06:22:12,120 - INFO - METRIC CALCULATED - pressure→image_: {'pressure→image_R@1': 3.0159196874868734, 'pressure→image_R@5': 14.004666312810976, 'pressure→image_R@10': 25.16295818265827}
+2025-07-25 06:22:12,121 - INFO - AVERAGE RECALL for pressure→image_: 14.06%
+2025-07-25 06:22:12,121 - INFO - Computing pressure → pose recall...
+2025-07-25 07:40:38,108 - INFO - METRIC CALCULATED - pressure→pose_: {'pressure→pose_R@1': 5.300580043302771, 'pressure→pose_R@5': 23.388460995047293, 'pressure→pose_R@10': 40.06728349568691}
+2025-07-25 07:40:38,108 - INFO - AVERAGE RECALL for pressure→pose_: 22.92%
+2025-07-25 07:40:38,109 - INFO - ==================================================
+2025-07-25 07:40:38,109 - INFO - DUAL-MODALITY QUERIES
+2025-07-25 07:40:38,109 - INFO - ==================================================
+2025-07-25 07:40:38,109 - INFO - Computing image+pose → pressure recall...
+2025-07-25 08:59:22,098 - INFO - METRIC CALCULATED - image+pose→pressure_: {'image+pose→pressure_R@1': 2.6562088308633443, 'image+pose→pressure_R@5': 12.228259831905818, 'image+pose→pressure_R@10': 21.91945073450513}
+2025-07-25 08:59:22,098 - INFO - AVERAGE RECALL for image+pose→pressure_: 12.27%
+2025-07-25 08:59:22,098 - INFO - Computing image+pressure → pose recall...
+2025-07-25 10:18:07,764 - INFO - METRIC CALCULATED - image+pressure→pose_: {'image+pressure→pose_R@1': 10.227320459605082, 'image+pressure→pose_R@5': 41.159399259957915, 'image+pressure→pose_R@10': 63.727245997166605}
+2025-07-25 10:18:07,764 - INFO - AVERAGE RECALL for image+pressure→pose_: 38.37%
+2025-07-25 10:18:07,765 - INFO - Computing pose+pressure → image recall...
+2025-07-25 11:36:50,629 - INFO - METRIC CALCULATED - pose+pressure→image_: {'pose+pressure→image_R@1': 7.172451188916934, 'pose+pressure→image_R@5': 30.447882020948764, 'pose+pressure→image_R@10': 49.68286638383669}
+2025-07-25 11:36:50,629 - INFO - AVERAGE RECALL for pose+pressure→image_: 29.10%
+2025-07-25 11:36:50,630 - INFO - ==================================================
+2025-07-25 11:36:50,630 - INFO - SUMMARY METRICS
+2025-07-25 11:36:50,630 - INFO - ==================================================
+2025-07-25 11:36:50,630 - INFO - MEAN SINGLE-MODALITY RECALL: 18.26%
+2025-07-25 11:36:50,630 - INFO - MEAN DUAL-MODALITY RECALL: 26.58%
+2025-07-25 11:36:50,630 - INFO - OVERALL MEAN RECALL: 22.42%
+2025-07-25 11:36:50,652 - INFO - All results saved to: /scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/benchmark_results.json
+2025-07-25 11:36:50,652 - INFO - Detailed logs saved to: /scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/benchmark_log_20250724_213829.log

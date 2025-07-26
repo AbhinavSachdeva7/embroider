@@ -1,91 +1,77 @@
 import torch
 import os
-import glob
 from tqdm import tqdm
+import logging
+import glob
 
-def combine_all_takes(input_dir: str, output_path: str):
-    
-    # Find all .pt files in the input directory
-    file_paths = sorted(glob.glob(os.path.join(input_dir, "combined_*.pt")))
-    
-    if not file_paths:
-        print(f"No '.pt' files found in {input_dir}. Exiting.")
+# --- Configuration ---
+# The directory containing the metadata files from `make_triplets.py`
+METADATA_INPUT_DIR = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/"
+# The path for the final, consolidated data file
+FINAL_OUTPUT_FILE = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/ALL_DATA.pt"
+
+# Setup basic logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def consolidate_metadata_files(input_dir: str, output_path: str):
+    """
+    Scans a directory for subject-specific metadata files (triplets_metadata_subject*.pt),
+    combines them, and consolidates the result into a single dictionary
+    with large, stacked tensors for efficiency.
+    """
+    search_pattern = os.path.join(input_dir, "triplets_metadata_subject*.pt")
+    metadata_files = sorted(glob.glob(search_pattern))
+
+    if not metadata_files:
+        logging.error(f"No metadata files found matching pattern: {search_pattern}")
         return
 
-    print(f"Found {len(file_paths)} files to combine.")
+    logging.info(f"Found {len(metadata_files)} metadata files to consolidate.")
 
-    total_samples = 0
-    image_shape, pose_shape, pressure_shape = None, None, None
-    dtype_image, dtype_pose, dtype_pressure = None, None, None
+    # --- Initialize master lists to hold all data from all files ---
+    all_image_paths = []
+    all_poses_list = []
+    all_pressures_list = []
 
-    for file_path in tqdm(file_paths, desc="Pass 1/2: Collecting metadata"):
-        # Set weights_only=True for security and to prepare for future PyTorch versions.
-        data = torch.load(file_path)
-        
-        num_in_file = data['image'].shape[0]
-        total_samples += num_in_file
-        
-        # On the first file, grab the shapes and dtypes
-        if image_shape is None:
-            image_shape = data['image'].shape[1:]
-            pose_shape = data['pose'].shape[1:]
-            pressure_shape = data['pressure'].shape[1:]
-            dtype_image = data['image'].dtype
-            dtype_pose = data['pose'].dtype
-            dtype_pressure = data['pressure'].dtype
-        
-        del data # Explicitly release memory
+    # --- Iterate through each file and append its data ---
+    for file_path in tqdm(metadata_files, desc="Consolidating metadata files"):
+        samples_list = torch.load(file_path)
 
-    if total_samples == 0:
-        print("No samples found in any files. Exiting.")
+        if not samples_list:
+            logging.warning(f"Metadata file {os.path.basename(file_path)} is empty. Skipping.")
+            continue
+        
+        for sample in samples_list:
+            all_image_paths.append(sample['image_path'])
+            all_poses_list.append(sample['pose'])
+            all_pressures_list.append(sample['pressure'])
+    
+    if not all_image_paths:
+        logging.error("No samples found across all metadata files. Nothing to save.")
         return
 
-    print(f"\nMetadata collected: Total samples = {total_samples}")
-    print(f"  Image shape: {image_shape}, Pose shape: {pose_shape}, Pressure shape: {pressure_shape}")
-
-    # --- Pre-allocate final tensors ---
-    print("\nPre-allocating final tensors...")
-    final_images = torch.empty((total_samples, *image_shape), dtype=dtype_image)
-    final_poses = torch.empty((total_samples, *pose_shape), dtype=dtype_pose)
-    final_pressures = torch.empty((total_samples, *pressure_shape), dtype=dtype_pressure)
-
-    # --- Pass 2: Load data and fill the tensors ---
-    current_pos = 0
-    for file_path in tqdm(file_paths, desc="Pass 2/2: Loading and filling data"):
-        data = torch.load(file_path, weights_only=True)
-        
-        num_in_file = data['image'].shape[0]
-        
-        # Copy data into the correct slice of the pre-allocated tensors
-        final_images[current_pos : current_pos + num_in_file] = data['image']
-        final_poses[current_pos : current_pos + num_in_file] = data['pose']
-        final_pressures[current_pos : current_pos + num_in_file] = data['pressure']
-        
-        current_pos += num_in_file
-        del data # Explicitly release memory
-
-    # Create the final combined dictionary
+    # --- Stack tensors for memory efficiency ---
+    logging.info("Stacking all collected pose and pressure tensors...")
+    final_poses = torch.stack(all_poses_list)
+    final_pressures = torch.stack(all_pressures_list)
+    
+    # Create the final consolidated dictionary
     final_data = {
-        'image': final_images,
-        'pose': final_poses,
-        'pressure': final_pressures
+        'image_paths': all_image_paths,
+        'poses': final_poses,
+        'pressures': final_pressures
     }
 
-    # Save the single, large data file
-    print(f"\nSaving final combined data to {output_path}...")
+    # --- Save the single, large data file ---
+    logging.info(f"Saving final consolidated data to {output_path}...")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     torch.save(final_data, output_path)
     
-    print("\nSuccessfully combined all data into a single file.")
-    print(f"Final image tensor shape: {final_images.shape}")
-    print(f"Final pose tensor shape: {final_poses.shape}")
-    print(f"Final pressure tensor shape: {final_pressures.shape}")
+    logging.info("\n--- Successfully combined all data into a single file. ---")
+    logging.info(f"Final number of image paths: {len(all_image_paths)}")
+    logging.info(f"Final pose tensor shape: {final_poses.shape}")
+    logging.info(f"Final pressure tensor shape: {final_pressures.shape}")
 
 
 if __name__ == '__main__':
-    # Directory where the output of make_triplets.py is stored
-    input_directory = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/combined/"
-    
-    # Path for the final output file
-    output_file = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/ALL_DATA.pt"
-    
-    combine_all_takes(input_dir=input_directory, output_path=output_file)
+    consolidate_metadata_files(input_dir=METADATA_INPUT_DIR, output_path=FINAL_OUTPUT_FILE)

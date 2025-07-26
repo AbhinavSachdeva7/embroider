@@ -1,0 +1,21 @@
+2025-07-22 13:58:03,690 - INFO - Using device: cuda
+2025-07-22 13:58:05,493 - INFO - Loaded model from /scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_20.pth
+2025-07-22 13:58:05,493 - INFO - Loading consolidated metadata from: /scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/ALL_DATA.pt
+2025-07-22 13:58:11,560 - INFO - Dataset initialized successfully. Total samples: 1309385
+2025-07-22 13:58:11,633 - INFO - Test dataset size: 261877
+2025-07-22 13:58:11,633 - INFO - Step 1: Computing/Loading collection features...
+2025-07-22 13:58:11,633 - INFO - Loading cached features from: /scratch/avs7793/work_done/poseembroider/new_model/src/features_cache_20/collection_features.pt
+2025-07-22 13:58:12,312 - INFO - Step 2: Computing/Loading retrieval features...
+2025-07-22 13:58:12,312 - INFO - Loading cached features from: /scratch/avs7793/work_done/poseembroider/new_model/src/features_cache_20/retrieval_features.pt
+2025-07-22 13:58:14,319 - INFO - Step 3: Calculating recall metrics...
+2025-07-22 13:58:14,319 - INFO - ==================================================
+2025-07-22 13:58:14,319 - INFO - SINGLE-MODALITY QUERIES
+2025-07-22 13:58:14,319 - INFO - ==================================================
+2025-07-22 13:58:14,319 - INFO - ==================================================
+2025-07-22 13:58:14,319 - INFO - DUAL-MODALITY QUERIES
+2025-07-22 13:58:14,319 - INFO - ==================================================
+2025-07-22 13:58:14,319 - INFO - ==================================================
+2025-07-22 13:58:14,319 - INFO - SUMMARY METRICS
+2025-07-22 13:58:14,319 - INFO - ==================================================
+2025-07-22 13:58:14,319 - INFO - All results saved to: /scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/benchmark_results.json
+2025-07-22 13:58:14,320 - INFO - Detailed logs saved to: /scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/benchmark_log_20250722_135803.log

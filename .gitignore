@@ -12,3 +12,5 @@ src/transformer/__pycache__/
 __pycache__/
 
 src/pretrained_weights/
+
+src/benchmark_features_cache/

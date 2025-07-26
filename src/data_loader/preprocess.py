@@ -4,58 +4,76 @@ import cv2
 from PIL import Image
 import os
 from tqdm import tqdm
-import torchvision.transforms as transforms
-import multiprocessing
+from multiprocessing import Pool, cpu_count
+import logging
 
+# --- Configuration ---
+# Root directory for all processed data
+OUTPUT_ROOT = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed"
+# Source data paths
+SOURCE_VIDEO_ROOT = "/scratch/avs7793/PSU100/Modality_wise/Video"
+SOURCE_POSE_ROOT = "/scratch/avs7793/soma/work/SOMA/amass_npzs/gt"
 
-image_transform = transforms.Compose([
-            transforms.Resize((256, 192)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-        ])
+# Define which subjects and takes to process
+# Format: {"subject_id_string": range(start_take, end_take)}
+SUBJECT_TAKE_MAPPING = {
+    # "1": range(1, 10),  # Process Subject 1, takes 1 through 9
+    "2": range(1, 7),   # Process Subject 5, takes 1 through 8
+    # "3": range(1, 10),
+    "4": range(1, 12),
+    "5": range(1, 9),
+    "6": range(1, 11),
+    "7": range(1, 10),
+    "8": range(1, 11),
+    "9": range(1, 14),
+    "10": range(1, 11),
 
-def _extract_and_process_frames(video_path: str):
-        """Extract frames from video and preprocess them."""
-        if not os.path.exists(video_path):
-            raise FileNotFoundError(f"Video not found: {video_path}")
-        
-        frames = []
-        cap = cv2.VideoCapture(video_path)
-        
-        # Get total frame count for progress bar
-        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-        # print(f"Total frames to process: {total_frames}")
-        
-        # Create progress bar
-        # with tqdm(total=total_frames, desc="Extracting frames", unit="frame") as pbar:
-        frame_count = 0
-        while True:
-            ret, frame = cap.read()
-            if not ret:
-                break
-            
-            # Convert BGR to RGB
-            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            pil_image = Image.fromarray(frame_rgb)
-            
-            # Apply preprocessing (resize, normalize, etc.)
-            processed_frame = image_transform(pil_image)
-            frames.append(processed_frame)
-            
-            frame_count += 1
-            # pbar.update(1)  # Update progress bar
-            
-        cap.release()
-        print(f"Successfully extracted {frame_count} frames")
-        return frames
+    # 2,7 3,10  4,12  5,9  6,11   7,10  8,11  9,14  10, 11
+    # Add other subjects and their take ranges here
+}
 
+IMAGE_SIZE = (192, 256)  # (Width, Height) for cv2.resize
 
-def _load_and_process_poses(pose_path: str):
-    """Load and process pose data."""
-    if not os.path.exists(pose_path):
-        raise FileNotFoundError(f"Pose file not found: {pose_path}")
+# Setup basic logging to see progress and warnings
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def extract_and_save_frames(video_path: str, image_output_dir: str):
+    """Extracts frames from a video, resizes them, and saves as PNG files."""
+    if not os.path.exists(video_path):
+        logging.warning(f"Video not found, skipping: {video_path}")
+        return
     
-    # Load poses (assuming numpy array)
+    os.makedirs(image_output_dir, exist_ok=True)
+    
+    cap = cv2.VideoCapture(video_path)
+    frame_count = 0
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        
+        # Resize frame and convert BGR (cv2) to RGB for standard saving
+        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        resized_frame = cv2.resize(frame_rgb, IMAGE_SIZE)
+        
+        # Save as a PNG image
+        img = Image.fromarray(resized_frame)
+        output_filename = os.path.join(image_output_dir, f"{frame_count:05d}.png")
+        img.save(output_filename)
+        
+        frame_count += 1
+            
+    cap.release()
+    logging.info(f"Saved {frame_count} frames from {os.path.basename(video_path)}")
+
+def process_and_save_poses(pose_path: str, pose_output_path: str):
+    """Loads poses from an .npz file, processes, and saves as a .pt file."""
+    if not os.path.exists(pose_path):
+        logging.warning(f"Pose file not found, skipping: {pose_path}")
+        return
+
+    os.makedirs(os.path.dirname(pose_output_path), exist_ok=True)
+
     poses_data = np.load(pose_path)
     poses_np = poses_data['poses']
     print(f"Loaded poses with shape: {poses_np.shape}")
@@ -64,48 +82,81 @@ def _load_and_process_poses(pose_path: str):
     # Assuming input is (n_frames, 22, 3) - adjust as needed for your data
     poses_tensor = torch.from_numpy(poses_np).float()
     
-    # Flatten each pose to (66,) for model input
-    poses_tensor = poses_tensor[:,:66]
-    print(f"Processed poses with shape: {poses_tensor.shape}")
+    # Ensure poses are flattened to the first 66 features, matching original logic
+    if poses_tensor.shape[1] >= 66:
+        poses_tensor = poses_tensor[:, :66]
+    else:
+        # Pad with zeros if a sample has fewer than 66 features
+        logging.warning(f"Pose tensor in {pose_path} has < 66 features. Padding with zeros.")
+        pad_size = 66 - poses_tensor.shape[1]
+        padding = torch.zeros(poses_tensor.shape[0], pad_size)
+        poses_tensor = torch.cat([poses_tensor, padding], dim=1)
 
-    poses_flattened = []
-    for i in range(poses_tensor.shape[0]):
-        # pose_flat = poses_tensor[i].view(-1)  # (22, 3) -> (66,)
-        poses_flattened.append(poses_tensor[i])
+    torch.save(poses_tensor, pose_output_path)
+    logging.info(f"Saved {poses_tensor.shape[0]} processed poses to {os.path.basename(pose_output_path)}")
 
-    # print(f"Flattened poses with shape: {len(poses_flattened)}")
-    return poses_flattened
+def extract_and_save_frames_wrapper(args):
+    """Wrapper to unpack arguments for image processing pool."""
+    video_path, image_output_dir = args
+    try:
+        extract_and_save_frames(video_path, image_output_dir)
+    except Exception as e:
+        logging.error(f"Error extracting frames from {video_path}: {e}")
 
+def process_and_save_poses_wrapper(args):
+    """Wrapper to unpack arguments for pose processing pool."""
+    pose_path, pose_output_path = args
+    try:
+        process_and_save_poses(pose_path, pose_output_path)
+    except Exception as e:
+        logging.error(f"Error processing poses from {pose_path}: {e}")
 
-def process_videos(start, finish, subject):
-	for i in tqdm(range(start,finish), desc=f"Processing videos for subject {subject}", position=0):
-		video_path = f"/scratch/avs7793/PSU100/Modality_wise/Video/Subject{subject}/Video_V2_{i}.mp4"
-		frames = _extract_and_process_frames(video_path)
-		torch.save(frames, f"frames_subject{subject}_take{i}_view2.pt") 
+def main():
+    """Orchestrates the preprocessing of all configured subjects and takes."""
+    os.makedirs(OUTPUT_ROOT, exist_ok=True)
+    
+    # --- Create distinct lists for image and pose processing tasks ---
+    image_tasks = []
+    pose_tasks = []
+    for subject_id, take_range in SUBJECT_TAKE_MAPPING.items():
+        for take_id in take_range:
+            # Add image processing task
+            video_path = os.path.join(SOURCE_VIDEO_ROOT, f"Subject{subject_id}", f"Video_V2_{take_id}.mp4")
+            image_output_dir = os.path.join(OUTPUT_ROOT, "images", f"subject_{subject_id}", f"take_{take_id}")
+            image_tasks.append((video_path, image_output_dir))
 
-def process_poses(start, finish, subject):
-	for i in tqdm(range(start,finish), desc=f"Processing poses for subject {subject}", position=1):
-		pose_path = f"/scratch/avs7793/soma/work/SOMA/amass_npzs/gt/Subject{subject}/Subject{subject}_MOCAP_MRK_{i}_gt_stageii.npz"
-		poses = _load_and_process_poses(pose_path)
-		torch.save(poses, f"poses_subject{subject}_take{i}.pt")
+            # Add pose processing task
+            pose_path = os.path.join(SOURCE_POSE_ROOT, f"Subject{subject_id}", f"Subject{subject_id}_MOCAP_MRK_{take_id}_gt_stageii.npz")
+            pose_output_dir = os.path.join(OUTPUT_ROOT, "poses")
+            pose_output_path = os.path.join(pose_output_dir, f"poses_subject{subject_id}_take{take_id}.pt")
+            pose_tasks.append((pose_path, pose_output_path))
 
+    if not image_tasks and not pose_tasks:
+        logging.warning("No tasks to process. Check SUBJECT_TAKE_MAPPING configuration.")
+        return
+        
+    logging.info(f"Generated {len(image_tasks)} image tasks and {len(pose_tasks)} pose tasks.")
+    
+    # --- Use a single process pool to run all tasks concurrently ---
+    # The pool will work on both fast (pose) and slow (image) tasks at the same time.
+    num_processes = 6
+    with Pool(processes=num_processes) as pool:
+        # Submit pose tasks
+        pose_results = pool.map_async(process_and_save_poses_wrapper, pose_tasks)
+        logging.info("Submitted all pose processing tasks to the pool.")
+
+        # Submit image tasks
+        image_results = pool.map_async(extract_and_save_frames_wrapper, image_tasks)
+        logging.info("Submitted all image processing tasks to the pool.")
+
+        # Wait for all tasks to complete
+        pose_results.get() # Wait for all pose tasks to finish
+        logging.info("--- All pose processing tasks are complete. ---")
+        
+        image_results.get() # Wait for all image tasks to finish
+        logging.info("--- All image processing tasks are complete. ---")
+
+    logging.info("--- All preprocessing tasks complete. ---")
 
 if __name__ == "__main__":
-	# video_path = "/scratch/avs7793/PSU100/Modality_wise/Video/Subject1/Video_V2_1.mp4"
-	# pose_path = "/scratch/avs7793/soma/work/SOMA/amass_npzs/gt/Subject1/Subject1_MOCAP_MRK_2_gt_stageii.npz"
-    # # frames = _extract_and_process_frames(video_path)
-	# poses = _load_and_process_poses(pose_path)
-    # # print(f"Total frames extracted: {len(frames)}")
-	# print(f"Total poses extracted: {len(poses)}")
-    # # torch.save(frames, "frames_subject1_take1.pt")
-	# torch.save(poses, "poses_subject1_take2.pt")
-    # p_videos = multiprocessing.Process(target=process_videos, args=(1,9,5))
-    p_poses = multiprocessing.Process(target=process_poses, args=(1,9,5))
-  
-    # p_videos.start()
-    p_poses.start()
-
-    # p_videos.join()
-    p_poses.join()
-
-    print("Done")
+    main()
