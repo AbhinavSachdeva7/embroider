@@ -13,9 +13,9 @@ from new_model.src.data_loader.dataset import ImagePosePressureDataset
 
 # --- Configuration ---
 # Set the path to the model checkpoint you want to evaluate
-CHECKPOINT_PATH = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_44.pth"
+CHECKPOINT_PATH = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_65.pth"
 K_RECALL_VALUES = [1, 5, 10]
-FEATURES_SAVE_DIR = "/scratch/avs7793/work_done/poseembroider/new_model/src/features_cache_44"
+FEATURES_SAVE_DIR = "/scratch/avs7793/work_done/poseembroider/new_model/src/features_cache_65"
 
 # Setup logging
 def setup_logging():
