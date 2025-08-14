@@ -65,3 +65,16 @@ class PoseImagePressureEmbroider(nn.Module):
         retrieval_features = self.fusion_transformer.get_retrieval_features(v=image_emb, p=pose_emb, s=pressure_emb)
         return retrieval_features
     
+    def get_fused_embedding(self, images=None, poses=None, pressure_maps=None):
+        """
+        Gets fused embedding for given inputs. For inference.
+        """
+        image_emb, pose_emb, pressure_emb = None, None, None
+        
+        # Get embeddings from the respective encoders if data is provided
+        image_emb = self.image_encoder(images) if images is not None else None
+        pose_emb = self.pose_encoder(poses) if poses is not None else None
+        pressure_emb = self.pressure_encoder(pressure_maps) if pressure_maps is not None else None
+
+        fused_embedding = self.fusion_transformer.get_fused_embedding(v=image_emb, p=pose_emb, s=pressure_emb, single_partials=True)
+        return fused_embedding

@@ -196,7 +196,7 @@ class FusionTransformer(nn.Module):
 
 
 	def forward(self, v=None, p=None, s=None,
-					single_partials=False, dual_partials=True, triplet_partial=True,
+					single_partials=True, dual_partials=True, triplet_partial=False,
 					loss_type="symBBC",
 					**kwargs):
 		"""
@@ -234,6 +234,28 @@ class FusionTransformer(nn.Module):
 
 
 		return loss_dict
+	
+	def get_fused_embedding(self, v=None, p=None, s=None,
+					single_partials=True, dual_partials=True, triplet_partial=False):
+		"""
+		Returns a dictionary of fused embeddings for various partial inputs.
+		This is similar to the `forward` method but stops before loss calculation,
+		returning the fused embeddings directly.
+		"""
+		# Create all partial input combinations and get their fused tokens.
+		x_dict = {}
+		if single_partials:
+			if v is not None: x_dict['only_image_input'] = self.forward_transformer_core(v=v)
+			if p is not None: x_dict['only_pose_input'] = self.forward_transformer_core(p=p)
+			if s is not None: x_dict['only_pressure_input'] = self.forward_transformer_core(s=s)
+		if dual_partials:
+			if v is not None and p is not None: x_dict['missing_pressure_input'] = self.forward_transformer_core(v=v, p=p)
+			if v is not None and s is not None: x_dict['missing_pose_input'] = self.forward_transformer_core(v=v, s=s)
+			if p is not None and s is not None: x_dict['missing_image_input'] = self.forward_transformer_core(p=p, s=s)
+		if triplet_partial:
+			if v is not None and p is not None and s is not None: x_dict['full_input'] = self.forward_transformer_core(v=v, p=p, s=s)
+
+		return x_dict
 	
 	def get_retrieval_features(self, v=None, p=None, s=None):
 		"""

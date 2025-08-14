@@ -35,7 +35,7 @@ def load_checkpoint(model, optimizer, checkpoint_path):
             print("Loading from new checkpoint format (includes optimizer state and epoch)")
             model.load_state_dict(checkpoint['model_state_dict'])
             optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-            start_epoch = checkpoint['epoch']  # Start from next epoch
+            start_epoch = checkpoint['epoch'] + 1 # Start from next epoch
             
             if 'loss' in checkpoint:
                 print(f"Resuming from epoch {checkpoint['epoch']}, last loss: {checkpoint['loss']:.4f}")
@@ -89,14 +89,14 @@ def train():
     torch.cuda.manual_seed(config.SEED)
     LOG_STEP = 10
     SAVE_EPOCH_INTERVAL = 5
-    EPOCHS = 100
+    EPOCHS = 150
     BATCH_SIZE = 2048
     NUM_WORKERS = 8
     VALIDATION_SPLIT = 0.2
     
     # Checkpoint configuration
     RESUME_TRAINING = True  # Set to True to resume from checkpoint, False to start fresh
-    RESUME_CHECKPOINT_PATH = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_44.pth"  # Path to checkpoint to resume from
+    RESUME_CHECKPOINT_PATH = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_65.pth"  # Path to checkpoint to resume from
     
     # Logging configuration
     LOG_FILE = os.path.join(config.CHECKPOINT_DIR, "training_log_beyond_30.csv")

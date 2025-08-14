@@ -10,7 +10,7 @@ import json
 IMAGE_ENCODER_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/src/pretrained_weights/smpler_x_b32.pth.tar"
 POSE_ENCODER_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/src/pretrained_weights/checkpoint_release.pth"
 PRESSURE_ENCODER_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/src/pretrained_weights/model_epoch_300.pt"
-
+FUSION_TRANSFORMER_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_125.pth"
 SEED = 781
 
 LATENT_D = 512

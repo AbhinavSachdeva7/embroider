@@ -76,6 +76,9 @@ class ImagePosePressureDataset(Dataset):
             'pressure_map': pressure
         }
 
+    def get_image_path(self, idx):
+        return self.image_paths[idx]
+
 # --- Test and Usage Example ---
 def main():
     """Demonstrates using the new, optimized dataset and dataloader."""
