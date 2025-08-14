@@ -16,3 +16,5 @@ src/pretrained_weights/
 src/benchmark_features_cache/
 
 inference_results/
+
+src/subject_7_pressure_estimation/
