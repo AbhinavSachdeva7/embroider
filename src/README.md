@@ -20,7 +20,7 @@ Additionally, this repository includes a downstream application for estimating p
 - **Python**: `3.9`
 - **PyTorch**: `2.7`
 
-Other required packages are mentioned in requirements.txt. These should be installed to be compatible with the Python and PyTorch versions above.
+Other required packages are mentioned in requirements.txt. These should be installed to be compatible with the Python and PyTorch versions above. For more information the conda environment package list is also included. 
 
 ### Required Data & Pre-trained Models
 
