@@ -4,6 +4,7 @@ from new_model.src.encoder.base_encoders.base_pressure_encoder import LargeVaria
 from new_model.src.full_model import PoseImagePressureEmbroider
 import new_model.src.config as config
 
+# this dies not work only here as proof of concept
 class PressureEstimator(nn.Module):
     def __init__(self, latentD=512):
         super(PressureEstimator, self).__init__()

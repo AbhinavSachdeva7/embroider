@@ -27,7 +27,7 @@ def load_checkpoint(model, optimizer, checkpoint_path):
     """
     if os.path.exists(checkpoint_path):
         print(f"Loading checkpoint from {checkpoint_path}")
-        checkpoint = torch.load(checkpoint_path, map_location='cpu')
+        checkpoint = torch.load(checkpoint_path, map_location='cpu', weights_only="False")
         
         # Check if this is the old format (just model state_dict) or new format (full checkpoint)
         if isinstance(checkpoint, dict) and 'optimizer_state_dict' in checkpoint:

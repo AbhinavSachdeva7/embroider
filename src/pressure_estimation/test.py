@@ -48,26 +48,26 @@ def test(x):
     with torch.no_grad():
         test_progress_bar = tqdm(test_loader, desc="Testing")
         for i, batch in enumerate(test_progress_bar):
-            poses = batch['pose'].to(device)
-            images = batch['image'].to(device)
-            pressures = batch['pressure_map'].to(device) # Shape: (512, 1, 42, 60)
+            poses = batch['pose'].to(device) # Shape: (512, 66)
+            images = batch['image'].to(device) # Shape: (512, 3, 256, 192)
+            pressures = batch['pressure_map'].to(device) # Shape: (512, 2520)
             print(images.shape)
-            # print(poses.shape)
-            # print(pressures.shape)
+            print(poses.shape)
+            print(pressures.shape)
             outputs = model(pose=poses)
             outputs = torch.expm1(outputs)
 
             # This calculates the average MSE for the current batch
-            loss = loss_fn(outputs, pressures)
+            # loss = loss_fn(outputs, pressures)
 
             # `pressures.numel()` is 512 * 1 * 42 * 60 = 1,290,240
             # We multiply the batch's average error by its number of elements
             # to get the sum of all squared errors for this batch.
-            total_squared_error += loss.item() * pressures.numel()
+            # total_squared_error += loss.item() * pressures.numel()
 
             # We keep a running total of all elements processed
-            total_elements += pressures.numel()
-            test_progress_bar.set_postfix(batch_mse=loss.item())
+            # total_elements += pressures.numel()
+            # test_progress_bar.set_postfix(batch_mse=loss.item())
 
     # Finally, we divide the total sum of squared errors by the
     # total number of elements to get the true MSE over the entire dataset.

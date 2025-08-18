@@ -86,7 +86,7 @@ class ImageEncoder(nn.Module):
 		
 		# 2. Load its pretrained weights
 		pretrained_path = config.IMAGE_ENCODER_PATH
-		ckpt = torch.load(pretrained_path, map_location=torch.device('cpu'))
+		ckpt = torch.load(pretrained_path, map_location=torch.device('cpu'), weights_only=False)
 		new_state_dict = OrderedDict()
 		for k, v in ckpt['network'].items():
 			if ('backbone.' in k) or ('encoder.' in k):
@@ -122,7 +122,7 @@ class PoseEncoder(nn.Module):
 		
 		# 1. Load checkpoint info
 		pretrained_path = config.POSE_ENCODER_PATH
-		ckpt = torch.load(pretrained_path, 'cpu')
+		ckpt = torch.load(pretrained_path, map_location=torch.device('cpu'), weights_only=False)
 		
 		# 2. Initialize the base PoseVAE model
 		self.base_encoder = PoseEncoder_posevae(latentD=ckpt['args'].latentD, num_body_joints=config.NB_INPUT_JOINTS, role="no_output_layer")
@@ -155,7 +155,7 @@ class PressureEncoder(nn.Module):
 		
 		self.pretrained_pressure_encoder = LargeVariationalAutoEncoder()
 		pretrained_path = config.PRESSURE_ENCODER_PATH
-		self.pretrained_pressure_encoder.load_state_dict(torch.load(pretrained_path, map_location=torch.device('cpu')))
+		self.pretrained_pressure_encoder.load_state_dict(torch.load(pretrained_path, map_location=torch.device('cpu'), weights_only=False))
 		
 		self.pressure_projection = get_projection(projection_type, 64, latentD)
 

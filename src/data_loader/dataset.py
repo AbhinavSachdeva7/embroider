@@ -24,7 +24,7 @@ class ImagePosePressureDataset(Dataset):
         if not os.path.exists(metadata_file):
             raise FileNotFoundError(f"Metadata file not found: {metadata_file}")
 
-        data = torch.load(metadata_file)
+        data = torch.load(metadata_file, weights_only=False)
         self.image_paths = data['image_paths']
         self.poses = data['poses']
         self.pressures = data['pressures']
@@ -86,7 +86,7 @@ def main():
     metadata_path = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/ALL_DATA.pt"
     
     print("--- Initializing New Dataset ---")
-    full_dataset = PressurePoseDataset(metadata_file=metadata_path)
+    full_dataset = ImagePosePressureDataset(metadata_file=metadata_path)
     print(f"\n--- Dataset Ready. Found {len(full_dataset)} total samples. ---")
 
     # --- Splitting Dataset ---
