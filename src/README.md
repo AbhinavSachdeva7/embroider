@@ -24,11 +24,11 @@ Other required packages are mentioned in requirements.txt. These should be insta
 
 ### Required Data & Pre-trained Models
 
-1.  **Dataset**: This project uses TMM-100 containing synchronized videos, motion capture data, and pressure maps. The motion-capture data is converted to smpl poses, and video is converted to images by saving each frame, these images are saved in RGB and resized to (256,192), the code in `dataset.py` expects the images to be resized for conversion to tensors. We have a data file [], where the data is stored as [image_path, pose, pressure_map] the pose and pressure*map are saved as tensors, so they can be used unchanged. The image_path is saved as `/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject*{subject (1- 10)}/take\_{take number}/{index( in 5 decimal places like 00123 )}`, this needs to be changed depending on where you save the images.
+1.  **Dataset**: This project uses TMM-100 containing synchronized videos, motion capture data, and pressure maps. The motion-capture data is converted to smpl poses, and video is converted to images by saving each frame, these images are saved in RGB and resized to (256,192), the code in `dataset.py` expects the images to be resized for conversion to tensors. We have a data file [https://pennstateoffice365.sharepoint.com/:u:/r/sites/LPAC-LaboratoryforPerceptionActionandCognition/Shared%20Documents/Retrieval_Model_Data/ALL_DATA.pt?csf=1&web=1&e=598kFl], where the data is stored as [image_path, pose, pressure_map] the pose and pressure*map are saved as tensors, so they can be used unchanged. The image_path is saved as `/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject*{subject (1- 10)}/take\_{take number}/{index( in 5 decimal places like 00123 )}`, this needs to be changed depending on where you save the images.
 
 2.  **SMPL Models**: they are required only if you want to visualize them, or find MPJPE.
 
-3.  **Pre-trained Encoder Weights**: The individual encoders for image, pose, and pressure are initialized with pre-trained weights. Download these and ensure the paths in `src/config.py` point to them correctly.
+3.  **Pre-trained Encoder Weights**: The individual encoders for image, pose, and pressure are initialized with pre-trained weights. Download these and ensure the paths in `src/config.py` point to them correctly. They can be downloaded from here. [https://pennstateoffice365.sharepoint.com/:f:/r/sites/LPAC-LaboratoryforPerceptionActionandCognition/Shared%20Documents/Retrieval_Model_Data/pretrained_weights?csf=1&web=1&e=rGJM2r]
 
 ## Data Preparation Pipeline
 
