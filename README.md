@@ -30,6 +30,8 @@ Other required packages are mentioned in requirements.txt. These should be insta
 
 3.  **Pre-trained Encoder Weights**: The individual encoders for image, pose, and pressure are initialized with pre-trained weights. Download these and ensure the paths in `src/config.py` point to them correctly. They can be downloaded from here. [https://pennstateoffice365.sharepoint.com/:f:/r/sites/LPAC-LaboratoryforPerceptionActionandCognition/Shared%20Documents/Retrieval_Model_Data/pretrained_weights?csf=1&web=1&e=rGJM2r]
 
+## Run all the code from the parent directory of new_model
+
 ## Data Preparation Pipeline
 
 The raw dataset must be processed into a format suitable for efficient training. Follow these steps sequentially:
