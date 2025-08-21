@@ -109,7 +109,7 @@ python -m new_model.src.pressure_estimation.train
   ```
 
 ## Project Structure
-
+```markdown
 src/
 ├── benchmark/ # Benchmark logs and results
 ├── checkpoints/ # Saved model checkpoints
@@ -130,3 +130,4 @@ src/
 │ └── visualize.py
 ├── train_loop.py # Main training script for the retrieval model
 └── transformer/ # Fusion transformer implementation
+```
