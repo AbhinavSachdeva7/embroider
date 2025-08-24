@@ -79,6 +79,8 @@ python -m new_model.src.train_loop
 
 Checkpoints will be saved periodically to the directory specified in `config.py`.
 
+Another thing to remmeber is that the file `train_loop.py` contains the resume checkpoint flag (as a constant) and the path to the checkpoint to resume training from, if you want to train the model from the beginning disable one or both of them to ensure the model starts training from the start. 
+
 ### Benchmarking
 
 To evaluate a trained model and generate performance metrics, run the benchmark script:
