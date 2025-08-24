@@ -78,7 +78,7 @@ def get_pose_tensor(pose):
     pose_tensor = pose[:66]
     return pose_tensor # shape = [66]
 
-def visualize(image_path = None, pose = None, model_checkpoint_path= None):
+def visualize(image_path = None, pose = None, model= None):
     """
     Performs inference using the pressure estimation model on an image and/or pose.
 
@@ -93,13 +93,9 @@ def visualize(image_path = None, pose = None, model_checkpoint_path= None):
     Returns:
         torch.Tensor: The predicted pressure map from the model. Returns None if both image_path and pose are None.
     """
+    
     device = torch.device("cuda:0")
-    print(f"Using device: {device}")
-	
-    checkpoint_model = torch.load(model_checkpoint_path, map_location=torch.device('cpu'), weights_only=False)
-    model = PressureEstimatorNew(latentD=config.LATENT_D).to(device)
-    model.load_state_dict(checkpoint_model['model_state_dict'])
-
+    model = model
     model.eval()
 	
     with torch.no_grad():
@@ -116,12 +112,12 @@ def visualize(image_path = None, pose = None, model_checkpoint_path= None):
         input_image = image_tensor if image_path is not None else None
         input_pose = pose_tensor if pose is not None else None
 		
-        outputs = model(image=input_image, pose=input_pose)
+        outputs = model(pose=input_pose, image=input_image)
         outputs = torch.expm1(outputs)
         outputs = outputs.squeeze(0)
         return outputs
 		
-def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pressure, filepath, title="Pressure Map", pressure_shape=(60, 42), subject_id=7, take_id=3, index=139):
+def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pressure, loss_fn, filepath, title="Pressure Map", pressure_shape=(60, 42), subject_id=7, take_id=3, index=139):
         """
         Saves a visualization comparing generated and original pressure maps.
 
@@ -145,29 +141,40 @@ def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pre
         if original_pressure.is_cuda:
             original_pressure = original_pressure.cpu()
 
+        has_image = None
+        has_pose = None
+        if image_path is not None:
+            has_image = image_path 
+        if pose_tensor is not None:
+            has_pose = pose_tensor 
 
-        has_image = image_path is not None
-        has_pose = pose_tensor is not None
-
-        if has_pose:
+        if has_pose is not None:
             vertices, faces, views = visualize_smplx_pose(pose=pose_tensor, model_path=SMPLX_MODEL_PATH)
 		
-        loss_fn = nn.MSELoss(reduction='mean')
-        loss = loss_fn(pressure_tensor, original_pressure)
-        loss = torch.sqrt(loss)
+        loss_fn = loss_fn
+        total_loss = loss_fn(pressure_tensor, original_pressure)
+        total_rmse_loss = torch.sqrt(total_loss)
+
+        non_zero_mask = original_pressure > 0
+        contact_rmse_str = "N/A"
+        if torch.any(non_zero_mask):
+            contact_loss = loss_fn(pressure_tensor[non_zero_mask], original_pressure[non_zero_mask])
+            contact_rmse_loss = torch.sqrt(contact_loss)
+            contact_rmse_str = f"{contact_rmse_loss.item():.4f} kPa"
+
 
         pressure_map = pressure_tensor.numpy().reshape(pressure_shape)
         original_pressure_map = original_pressure.numpy().reshape(pressure_shape)
         difference_pressure_map = pressure_map - original_pressure_map
         
-        if has_image and has_pose:
+        if has_image is not None and has_pose is not None:
             fig = plt.figure(figsize=(12, 18))
             gs = fig.add_gridspec(3, 2)
         else:
             fig = plt.figure(figsize=(12, 12))
             gs = fig.add_gridspec(2, 2)
 
-        fig.suptitle(f"Subject-{subject_id} Take-{take_id} Index-{index:05d} \nRMSE: {loss.item():.4f} kPa")
+        fig.suptitle(f"Subject-{subject_id} Take-{take_id} Index-{index:05d} \nOverall RMSE: {total_rmse_loss.item():.4f} kPa \nContact Area RMSE: {contact_rmse_str}")
 
         # Column 2: Generated Pressure and Differnece map(common to all cases)
         gs_col2 = gs[:, 1].subgridspec(2, 1, hspace=0.3)
@@ -182,10 +189,10 @@ def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pre
         vmin = -vmax
         im3 = ax_diff.imshow(difference_pressure_map, cmap='coolwarm', interpolation='nearest', vmin=vmin, vmax=vmax)
         fig.colorbar(im3, ax=ax_diff)
-        ax_diff.set_title("Difference Map (Generated - Orig)")
+        ax_diff.set_title("Difference Map (Generated - Original)")
 
 
-        if has_image and has_pose:
+        if has_image is not None and has_pose is not None:
             # Case: Image and Pose
             ax_img = fig.add_subplot(gs[0, 0])
             original_image = Image.open(image_path)
@@ -213,7 +220,7 @@ def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pre
             fig.colorbar(im1, ax=ax_orig)
             ax_orig.set_title(f"Original {title}")
 
-        elif has_image:
+        elif has_image is not None:
             # Case: Image only
             ax_img = fig.add_subplot(gs[0, 0])
             original_image = Image.open(image_path)
@@ -226,7 +233,7 @@ def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pre
             fig.colorbar(im1, ax=ax_orig)
             ax_orig.set_title(f"Original {title}")
         
-        elif has_pose:
+        elif has_pose is not None:
             # Case: Pose only
             ax_pose = fig.add_subplot(gs[0, 0], projection='3d')
             ax_pose.plot_trisurf(vertices[:, 0], vertices[:, 1], vertices[:, 2], triangles=faces, color=[0.8, 0.8, 1.0], alpha=0.9)
@@ -405,8 +412,20 @@ if __name__ == "__main__":
     take_id = 3
     indices = [139,4174,4536,4865,5160,5464,5600,5800,6020,6306,6668,727,7013,7186,7391,7652,7986,8610,9129,9507,9867,10104,1166,10472,11147,11500,12034,12671,13306,13734,14153,14470,14749,1629,15391,15723,16310,16836,2095,2444,2963,3392,3810] #keypose indexes of subject 7 take 3
     
+    MODEL_CHECKPOINT_PATH = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_75_pressure_estimation_new.pth"
+    BASE_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/inference_results/pressure_estimation_results_image"
+    USE_IMAGE = True
+    USE_POSE = False
+    DEVICE = torch.device("cuda:0")
+    LOSS_FN = nn.MSELoss(reduction='mean')
     
-    
+    checkpoint_model = torch.load(MODEL_CHECKPOINT_PATH, map_location=torch.device('cpu'), weights_only=False)
+    model = PressureEstimatorNew(latentD=config.LATENT_D).to(DEVICE)
+    model.load_state_dict(checkpoint_model['model_state_dict'])
+
+    print(f"Using device: {DEVICE}")
+
+
     # --- Main Loop ---
     # Iterate through each specified index to generate and save pressure map visualizations.
     for index in indices:
@@ -424,18 +443,35 @@ if __name__ == "__main__":
         pose = torch.load(pose_path)
         pose_tensor = pose[index]
 
-        # --- Inference ---
-        # Load the model checkpoint and run inference to get the predicted pressure map.
-        # Currently, it uses only the image as input (pose=None).
-        model_checkpoint_path = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_75_pressure_estimation_new.pth"
-        outputs = visualize(image_path = image_path, pose = None, model_checkpoint_path = model_checkpoint_path)
-        
+                
         # --- Save Visualization ---
         # Define output path and save the comparison heatmap.
-        save_file_name = f"pressure_estimation_image+pose_only_subject{subject_id}_take{take_id}_index{index}.png"
-        base_path = f"/scratch/avs7793/work_done/poseembroider/new_model/inference_results/pressure_estimation_results"
-        save_path = os.path.join(base_path, save_file_name)
+        save_file_name = f"pressure_estimation_image_only_subject{subject_id}_take{take_id}_index{index}.png"    
+        save_path = os.path.join(BASE_PATH, save_file_name)
 
 
-        save_pressure_heatmap(image_path=image_path, pose_tensor=None, pressure_tensor=outputs, original_pressure=original_pressure, filepath=save_path, title="Pressure Map", pressure_shape=(60, 42), subject_id=subject_id, take_id=take_id, index=index)
+
+        # --- Inference ---
+        # Load the model checkpoint and run inference to get the predicted pressure map.
+        
+        if USE_IMAGE and USE_POSE:
+            outputs = visualize(image_path=image_path, pose = pose_tensor, model = model)
+            save_pressure_heatmap(image_path=image_path, pose_tensor=pose_tensor, pressure_tensor=outputs, original_pressure=original_pressure, loss_fn=LOSS_FN, filepath=save_path, title="Pressure Map", pressure_shape=(60, 42), subject_id=subject_id, take_id=take_id, index=index)
+
+        elif USE_IMAGE:
+            outputs = visualize(image_path=image_path, pose = None, model = model)
+            save_pressure_heatmap(image_path=image_path, pose_tensor=None, pressure_tensor=outputs, original_pressure=original_pressure, loss_fn=LOSS_FN, filepath=save_path, title="Pressure Map", pressure_shape=(60, 42), subject_id=subject_id, take_id=take_id, index=index)
+
+        elif USE_POSE:
+            outputs = visualize(image_path=None, pose = pose_tensor, model = model)
+            save_pressure_heatmap(image_path=None, pose_tensor=pose_tensor, pressure_tensor=outputs, original_pressure=original_pressure, loss_fn=LOSS_FN, filepath=save_path, title="Pressure Map", pressure_shape=(60, 42), subject_id=subject_id, take_id=take_id, index=index)
+
+        else:
+            print("Either Image or Pose is required for this to work")
+            
+
+
+        
+        
+        
         # break

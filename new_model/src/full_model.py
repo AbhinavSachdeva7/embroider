@@ -76,5 +76,9 @@ class PoseImagePressureEmbroider(nn.Module):
         pose_emb = self.pose_encoder(poses) if poses is not None else None
         pressure_emb = self.pressure_encoder(pressure_maps) if pressure_maps is not None else None
 
-        fused_embedding = self.fusion_transformer.get_fused_embedding(v=image_emb, p=pose_emb, s=pressure_emb, single_partials=True)
+        if images is not None and poses is not None:
+            fused_embedding = self.fusion_transformer.get_fused_embedding(v=image_emb, p=pose_emb, s=pressure_emb, single_partials=False, dual_partials=True)    
+        else:
+            fused_embedding = self.fusion_transformer.get_fused_embedding(v=image_emb, p=pose_emb, s=pressure_emb, single_partials=True, dual_partials=False)
+        
         return fused_embedding

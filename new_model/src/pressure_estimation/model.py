@@ -62,10 +62,13 @@ class PressureEstimatorNew(nn.Module):
         
         if image is not None and pose is not None:
             z = fused_embedding['missing_pressure_input']
+        
         elif image is not None and pose is None:
             z = fused_embedding['only_image_input']
+            
         elif pose is not None and image is None:
             z = fused_embedding['only_pose_input']
+            
         
         z = self.ReLU(self.first_layer(z)) #  512 -> 1024
         z = self.ReLU(self.second_layer(z)) # 1024 -> 256
