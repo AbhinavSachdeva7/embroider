@@ -7,15 +7,17 @@ import json
 
 # -- Replace these with the actual paths to your image files --
 
+NUMBER_OF_RETRIEVED_RESULTS_DISPLAYED = 10
 
-def visualize_results(combination):
-    base_path = f'/scratch/avs7793/work_done/poseembroider/visualization_results/{combination}'
+
+def visualize_results(combination, input_base_directory='/scratch/avs7793/work_done/poseembroider/new_model/visualization_results_detailed', output_directory='/scratch/avs7793/work_done/poseembroider/new_model/inference_results/top3_retrieved_grids'):
+    base_path = os.path.join(input_base_directory,combination)
     folders = [
         "best_rank_1",
-        "good_rank_2_5",
-        "moderate_rank_6_10",
-        "poor_rank_gt_10",
-        "random",
+        # "good_rank_2_5",
+        # "moderate_rank_6_10",
+        # "poor_rank_gt_10",
+        # "random",
     ]
 
     for folder_name in folders:
@@ -65,9 +67,13 @@ def visualize_results(combination):
             result_image_filename = 'image.png'
         else:
             raise ValueError(f"Could not determine target modality from combination: {combination}")
+        
+        # how amny retrieved results do you want to display depends on the below constant
+        
 
-        ranked_result_images = [os.path.join(current_folder_path, f'rank_{i:02d}', result_image_filename) for i in range(1, 11)]
-
+        ranked_result_pressure = [os.path.join(current_folder_path, f'rank_{i:02d}', 'pressure.png') for i in range(1, NUMBER_OF_RETRIEVED_RESULTS_DISPLAYED + 1)]
+        ranked_result_pose = [os.path.join(current_folder_path, f'rank_{i:02d}', 'smplx_pose_solid_render_3d_view_1.png') for i in range(1, NUMBER_OF_RETRIEVED_RESULTS_DISPLAYED + 1)]
+        ranked_result_visual = [os.path.join(current_folder_path, f'rank_{i:02d}', 'image.png') for i in range(1, NUMBER_OF_RETRIEVED_RESULTS_DISPLAYED + 1)]
 
         with open(img_path_file, 'r') as f:
             img_path_summary = json.load(f)
@@ -78,11 +84,11 @@ def visualize_results(combination):
 
         # Create a figure with a 4-row, 12-column grid.
         # The figsize is set to be wide to accommodate all columns.
-        fig, axes = plt.subplots(nrows=4, ncols=12, figsize=(24, 8))
+        fig, axes = plt.subplots(nrows=4, ncols=2+NUMBER_OF_RETRIEVED_RESULTS_DISPLAYED, figsize=(24, 8))
 
         # --- Row 1: Add Text Headings ---
         # First, turn off the axis frames for the entire first row
-        for i in range(12):
+        for i in range(2+NUMBER_OF_RETRIEVED_RESULTS_DISPLAYED):
             axes[0, i].axis('off')
 
         # Define heading properties
@@ -91,7 +97,7 @@ def visualize_results(combination):
         # Add text to the cells in the first row
         axes[0, 0].text(0.5, 0.5, "Ground Truth", **heading_font)
         axes[0, 1].text(0.5, 0.5, "Query", **heading_font)
-        for i in range(10):
+        for i in range(NUMBER_OF_RETRIEVED_RESULTS_DISPLAYED):
             axes[0, i + 2].text(0.5, 0.5, f"Rank {i+1}", **heading_font)
 
 
@@ -120,14 +126,84 @@ def visualize_results(combination):
 
 
         # --- Columns 3-12: Plot Ranked Results (Retrieved and Ground Truth) ---
-        for i, retrieved_path in enumerate(ranked_result_images):
-            # Plot retrieved result in row 2
-            retrieved_ax = axes[1, i + 2]
+        # for i, retrieved_path in enumerate(ranked_result_visual):
+        #     # Plot retrieved result in row 2
+        #     retrieved_ax = axes[1, i + 2]
+        #     if os.path.exists(retrieved_path):
+        #         retrieved_ax.imshow(Image.open(retrieved_path))
+        #         retrieved_ax.set_title("Retrieved", fontsize=10)
+                
+                
+        #         img_detail = ' '.join(img_path_summary[keys[i+1]][0].split('/')[-3:]).replace('_', '-').replace('.png', '')
+        #         # retrieved_ax.set_xlabel(f"{img_detail}", fontsize=6)
+        #         label_text = img_detail
+        #         label_fontsize = 8
+        #         if target_modality == "pose":
+        #             with open(mpjpe_file, 'r') as f:
+        #                 mpjpe_summary = json.load(f)
+        #             mpjpe = mpjpe_summary[folder_name][f'rank_{i+1:02d}']
+        #             metric_text = f"MPJPE: {mpjpe:.2f} mm"
+        #             label_text = f"{metric_text}\n{img_detail}"
+        #             label_fontsize = 8
+                    
+        #         elif target_modality == "pressure":
+        #             with open(pressure_mse_file, 'r') as f:
+        #                 pressure_mse_summary = json.load(f)
+        #             pressure_keys = list(pressure_mse_summary.keys())
+        #             pressure_mse = pressure_mse_summary[pressure_keys[i+1]][0]
+        #             metric_text = f"MSE: {pressure_mse:.2f}"
+        #             label_text = f"{metric_text}\n{img_detail}"
+        #             label_fontsize = 8
+
+        #         retrieved_ax.set_xlabel(label_text, fontsize=label_fontsize)
+        #         # elif target_modality == "image":
+        #         #     with open(img_path_file, 'r') as f:
+        #         #         img_path_summary = json.load(f)
+        #     else:
+        #         print(f"Image not found, skipping: {retrieved_path}")
+        #         retrieved_ax.text(0.5, 0.5, "N/A", ha='center', va='center')
+
+        #     # Plot ground truth for the result in row 4
+        #     gt_ax = axes[3, i + 2]
+        #     if os.path.exists(retrieved_path):
+        #         if target_modality == "pressure":
+        #             gt_ax.imshow(Image.open(ground_truth_images["Pressure"]))
+        #         elif target_modality == "pose":
+        #             gt_ax.imshow(Image.open(ground_truth_images["Pose"]))
+        #         elif target_modality == "image":
+        #             gt_ax.imshow(Image.open(ground_truth_images["Image"]))
+        #         else:
+        #             raise ValueError(f"Could not determine target modality from combination: {combination}")
+        #         gt_ax.set_title("Ground Truth", fontsize=10)
+        #     else:
+        #         # No need to print again, just mark as N/A
+        #         gt_ax.text(0.5, 0.5, "N/A", ha='center', va='center')
+
+
+        # plot the full retrieved triplet with the retrieved query on the top and the rest of the triplet below it 
+        
+
+        if target_modality == "pressure":
+            retrieved_query = ranked_result_pressure
+            remaining_queries = [ranked_result_pose, ranked_result_visual]
+        elif target_modality == "pose":
+            retrieved_query = ranked_result_pose
+            remaining_queries = [ranked_result_visual, ranked_result_pressure]
+        elif target_modality == "image":
+            retrieved_query = ranked_result_visual
+            remaining_queries = [ranked_result_pose, ranked_result_pressure]
+        else:
+            raise ValueError(f"Could not determine target modality from combination: {combination}")
+            
+        for i, retrieved_path in enumerate(retrieved_query):
+
+            retrieved_ax1 = axes[1, i + 2]
+
+
             if os.path.exists(retrieved_path):
-                retrieved_ax.imshow(Image.open(retrieved_path))
-                retrieved_ax.set_title("Retrieved", fontsize=10)
-                
-                
+                retrieved_ax1.imshow(Image.open(retrieved_path))
+                retrieved_ax1.set_title("Retrieved", fontsize=10)
+
                 img_detail = ' '.join(img_path_summary[keys[i+1]][0].split('/')[-3:]).replace('_', '-').replace('.png', '')
                 # retrieved_ax.set_xlabel(f"{img_detail}", fontsize=6)
                 label_text = img_detail
@@ -149,30 +225,24 @@ def visualize_results(combination):
                     label_text = f"{metric_text}\n{img_detail}"
                     label_fontsize = 8
 
-                retrieved_ax.set_xlabel(label_text, fontsize=label_fontsize)
+                retrieved_ax1.set_xlabel(label_text, fontsize=label_fontsize)
                 # elif target_modality == "image":
                 #     with open(img_path_file, 'r') as f:
                 #         img_path_summary = json.load(f)
             else:
                 print(f"Image not found, skipping: {retrieved_path}")
-                retrieved_ax.text(0.5, 0.5, "N/A", ha='center', va='center')
+                retrieved_ax1.text(0.5, 0.5, "N/A", ha='center', va='center')
 
-            # Plot ground truth for the result in row 4
-            gt_ax = axes[3, i + 2]
-            if os.path.exists(retrieved_path):
-                if target_modality == "pressure":
-                    gt_ax.imshow(Image.open(ground_truth_images["Pressure"]))
-                elif target_modality == "pose":
-                    gt_ax.imshow(Image.open(ground_truth_images["Pose"]))
-                elif target_modality == "image":
-                    gt_ax.imshow(Image.open(ground_truth_images["Image"]))
+        for index, remaining_query in enumerate(remaining_queries):
+            for i,remaining_path in enumerate(remaining_query):
+                reamining_ax = axes[index + 2, i + 2]
+                
+                if os.path.exists(remaining_path):
+                    reamining_ax.imshow(Image.open(remaining_path))
                 else:
-                    raise ValueError(f"Could not determine target modality from combination: {combination}")
-                gt_ax.set_title("Ground Truth", fontsize=10)
-            else:
-                # No need to print again, just mark as N/A
-                gt_ax.text(0.5, 0.5, "N/A", ha='center', va='center')
+                    reamining_ax.text(0.5, 0.5, "N/A", ha='center', va='center')
 
+    
 
         # --- 3. Final Touches & Cleanup ---
 
@@ -189,7 +259,7 @@ def visualize_results(combination):
         # All of row 1 is used for headings (axes are already off)
         # Hide unused cells in rows 3 and 4
         axes[2, 1].axis('off') # Hide cell below/between query images
-        for col in range(2, 12):
+        for col in range(2, 2+NUMBER_OF_RETRIEVED_RESULTS_DISPLAYED):
              axes[2, col].axis('off') # Hide the entire 3rd row for ranked results columns
 
         # Adjust layout to prevent titles from overlapping and give some space
@@ -201,7 +271,7 @@ def visualize_results(combination):
 
         # --- 4. Save the Final Image ---
         output_filename = f"retrieval_results_grid_{combination}_{folder_name}.png"
-        output_path = os.path.join('/scratch/avs7793/work_done/poseembroider/new_grids', output_filename)
+        output_path = os.path.join(output_directory, output_filename)
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
 
         print(f"Result image '{output_filename}' has been saved!")
@@ -220,5 +290,9 @@ if __name__ == "__main__":
 		"pose+pressure_to_image",
 		"image+pose_to_pressure",
 	]
-    for combination in combinations:
-        visualize_results(combination)
+    input_base_directory = '/scratch/avs7793/work_done/poseembroider/new_model/visualization_results_detailed'
+    output_directory = '/scratch/avs7793/work_done/poseembroider/new_model/inference_results/new_grids'
+    
+    for combination in combinations: 
+        print(f'Processing combination: {combination}') 
+        visualize_results(combination=combination,input_base_directory=input_base_directory, output_directory=output_directory)
