@@ -154,9 +154,11 @@ def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pre
 		
         loss_fn = nn.MSELoss(reduction='mean')
         loss = loss_fn(pressure_tensor, original_pressure)
+        loss = torch.sqrt(loss)
 
         pressure_map = pressure_tensor.numpy().reshape(pressure_shape)
         original_pressure_map = original_pressure.numpy().reshape(pressure_shape)
+        difference_pressure_map = pressure_map - original_pressure_map
         
         if has_image and has_pose:
             fig = plt.figure(figsize=(12, 18))
@@ -165,13 +167,22 @@ def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pre
             fig = plt.figure(figsize=(12, 12))
             gs = fig.add_gridspec(2, 2)
 
-        fig.suptitle(f"Subject-{subject_id} Take-{take_id} Index-{index:05d} \nMSE: {loss.item():.4f} kPa")
+        fig.suptitle(f"Subject-{subject_id} Take-{take_id} Index-{index:05d} \nRMSE: {loss.item():.4f} kPa")
 
-        # Column 2: Generated Pressure (common to all cases)
-        ax_gen = fig.add_subplot(gs[:, 1])
+        # Column 2: Generated Pressure and Differnece map(common to all cases)
+        gs_col2 = gs[:, 1].subgridspec(2, 1, hspace=0.3)
+
+        ax_gen = fig.add_subplot(gs_col2[0])
         im2 = ax_gen.imshow(pressure_map, cmap='viridis', interpolation='nearest')
         fig.colorbar(im2, ax=ax_gen)
         ax_gen.set_title(f"Generated {title}")
+
+        ax_diff = fig.add_subplot(gs_col2[1])
+        vmax = np.abs(difference_pressure_map).max()
+        vmin = -vmax
+        im3 = ax_diff.imshow(difference_pressure_map, cmap='coolwarm', interpolation='nearest', vmin=vmin, vmax=vmax)
+        fig.colorbar(im3, ax=ax_diff)
+        ax_diff.set_title("Difference Map (Generated - Orig)")
 
 
         if has_image and has_pose:
@@ -422,9 +433,9 @@ if __name__ == "__main__":
         # --- Save Visualization ---
         # Define output path and save the comparison heatmap.
         save_file_name = f"pressure_estimation_image+pose_only_subject{subject_id}_take{take_id}_index{index}.png"
-        base_path = f"/scratch/avs7793/work_done/poseembroider/new_model/src/subject_7_pressure_estimation"
+        base_path = f"/scratch/avs7793/work_done/poseembroider/new_model/inference_results/pressure_estimation_results"
         save_path = os.path.join(base_path, save_file_name)
 
 
-        save_pressure_heatmap(image_path=image_path, pose_tensor=pose_tensor, pressure_tensor=outputs, original_pressure=original_pressure, filepath=save_path, title="Pressure Map", pressure_shape=(60, 42), subject_id=subject_id, take_id=take_id, index=index)
+        save_pressure_heatmap(image_path=image_path, pose_tensor=None, pressure_tensor=outputs, original_pressure=original_pressure, filepath=save_path, title="Pressure Map", pressure_shape=(60, 42), subject_id=subject_id, take_id=take_id, index=index)
         # break
