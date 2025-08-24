@@ -11,22 +11,22 @@ import logging
 # Root directory for all processed data
 OUTPUT_ROOT = "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed"
 # Source data paths
-SOURCE_VIDEO_ROOT = "/scratch/avs7793/PSU100/Modality_wise/Video"
+SOURCE_VIDEO_ROOT = "/scratch/data/PSUTMM100/PSU100/Modality_wise/Video"
 SOURCE_POSE_ROOT = "/scratch/avs7793/soma/work/SOMA/amass_npzs/gt"
 
 # Define which subjects and takes to process
 # Format: {"subject_id_string": range(start_take, end_take)}
 SUBJECT_TAKE_MAPPING = {
     # "1": range(1, 10),  # Process Subject 1, takes 1 through 9
-    "2": range(1, 7),   # Process Subject 5, takes 1 through 8
+    # "2": range(1, 7),   # Process Subject 5, takes 1 through 8
     # "3": range(1, 10),
-    "4": range(1, 12),
-    "5": range(1, 9),
-    "6": range(1, 11),
-    "7": range(1, 10),
-    "8": range(1, 11),
-    "9": range(1, 14),
-    "10": range(1, 11),
+    # "4": range(1, 12),
+    # "5": range(1, 9),
+    # "6": range(1, 11),
+    "7": range(3,4),
+    # "8": range(1, 11),
+    # "9": range(1, 14),
+    # "10": range(1, 11),
 
     # 2,7 3,10  4,12  5,9  6,11   7,10  8,11  9,14  10, 11
     # Add other subjects and their take ranges here
@@ -121,15 +121,15 @@ def main():
     for subject_id, take_range in SUBJECT_TAKE_MAPPING.items():
         for take_id in take_range:
             # Add image processing task
-            video_path = os.path.join(SOURCE_VIDEO_ROOT, f"Subject{subject_id}", f"Video_V2_{take_id}.mp4")
-            image_output_dir = os.path.join(OUTPUT_ROOT, "images", f"subject_{subject_id}", f"take_{take_id}")
+            video_path = os.path.join(SOURCE_VIDEO_ROOT, f"Subject{subject_id}", f"Video_V1_{take_id}.mp4")
+            image_output_dir = os.path.join(OUTPUT_ROOT, "images", f"subject_{subject_id}", f"take_{take_id}_another_view")
             image_tasks.append((video_path, image_output_dir))
 
             # Add pose processing task
-            pose_path = os.path.join(SOURCE_POSE_ROOT, f"Subject{subject_id}", f"Subject{subject_id}_MOCAP_MRK_{take_id}_gt_stageii.npz")
-            pose_output_dir = os.path.join(OUTPUT_ROOT, "poses")
-            pose_output_path = os.path.join(pose_output_dir, f"poses_subject{subject_id}_take{take_id}.pt")
-            pose_tasks.append((pose_path, pose_output_path))
+            # pose_path = os.path.join(SOURCE_POSE_ROOT, f"Subject{subject_id}", f"Subject{subject_id}_MOCAP_MRK_{take_id}_gt_stageii.npz")
+            # pose_output_dir = os.path.join(OUTPUT_ROOT, "poses")
+            # pose_output_path = os.path.join(pose_output_dir, f"poses_subject{subject_id}_take{take_id}.pt")
+            # pose_tasks.append((pose_path, pose_output_path))
 
     if not image_tasks and not pose_tasks:
         logging.warning("No tasks to process. Check SUBJECT_TAKE_MAPPING configuration.")
@@ -142,16 +142,16 @@ def main():
     num_processes = 6
     with Pool(processes=num_processes) as pool:
         # Submit pose tasks
-        pose_results = pool.map_async(process_and_save_poses_wrapper, pose_tasks)
-        logging.info("Submitted all pose processing tasks to the pool.")
+        # pose_results = pool.map_async(process_and_save_poses_wrapper, pose_tasks)
+        # logging.info("Submitted all pose processing tasks to the pool.")
 
         # Submit image tasks
         image_results = pool.map_async(extract_and_save_frames_wrapper, image_tasks)
         logging.info("Submitted all image processing tasks to the pool.")
 
         # Wait for all tasks to complete
-        pose_results.get() # Wait for all pose tasks to finish
-        logging.info("--- All pose processing tasks are complete. ---")
+        # pose_results.get() # Wait for all pose tasks to finish
+        # logging.info("--- All pose processing tasks are complete. ---")
         
         image_results.get() # Wait for all image tasks to finish
         logging.info("--- All image processing tasks are complete. ---")

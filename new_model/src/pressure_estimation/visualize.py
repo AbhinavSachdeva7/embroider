@@ -413,9 +413,9 @@ if __name__ == "__main__":
     indices = [139,4174,4536,4865,5160,5464,5600,5800,6020,6306,6668,727,7013,7186,7391,7652,7986,8610,9129,9507,9867,10104,1166,10472,11147,11500,12034,12671,13306,13734,14153,14470,14749,1629,15391,15723,16310,16836,2095,2444,2963,3392,3810] #keypose indexes of subject 7 take 3
     
     MODEL_CHECKPOINT_PATH = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_75_pressure_estimation_new.pth"
-    BASE_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/inference_results/pressure_estimation_results_image"
+    BASE_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/inference_results/pressure_estimation_results_image+pose_different_view"
     USE_IMAGE = True
-    USE_POSE = False
+    USE_POSE = True
     DEVICE = torch.device("cuda:0")
     LOSS_FN = nn.MSELoss(reduction='mean')
     
@@ -433,7 +433,7 @@ if __name__ == "__main__":
         
         # --- Data Loading ---
         # Construct file paths and load the image, original pressure, and pose data.
-        image_path = f"/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_{subject_id}/take_{take_id:}/{index:05d}.png"
+        image_path = f"/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_{subject_id}/take_{take_id:}_another_view/{index:05d}.png"
     
         pressure_path = f"/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/pressure/pressure_subject{subject_id}_take{take_id}.pt"
         pressure = torch.load(pressure_path)
@@ -446,7 +446,7 @@ if __name__ == "__main__":
                 
         # --- Save Visualization ---
         # Define output path and save the comparison heatmap.
-        save_file_name = f"pressure_estimation_image_only_subject{subject_id}_take{take_id}_index{index}.png"    
+        save_file_name = f"pressure_estimation_image+pose_subject{subject_id}_take{take_id}_index{index}.png"    
         save_path = os.path.join(BASE_PATH, save_file_name)
 
 
