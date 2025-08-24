@@ -57,9 +57,11 @@ def get_image_tensor(image_path):
     image = Image.open(image_path)
 	# uncomment the following lines to convert the image to RGB and resize it
 
-	# image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-	# image = cv2.resize(image, IMAGE_SIZE)
-	# image = Image.fromarray(image)
+    # Convert PIL Image to a numpy array for cv2 functions.
+    
+    image = np.array(image.convert('RGB'))
+    image = cv2.resize(image, IMAGE_SIZE)
+    image = Image.fromarray(image)
 	
     image_tensor = transform(image)
     return image_tensor # shape = [3,256,192]
@@ -152,8 +154,10 @@ def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pre
             vertices, faces, views = visualize_smplx_pose(pose=pose_tensor, model_path=SMPLX_MODEL_PATH)
 		
         loss_fn = loss_fn
+        total_rmse_str = "N/A"
         total_loss = loss_fn(pressure_tensor, original_pressure)
         total_rmse_loss = torch.sqrt(total_loss)
+        total_rmse_str = f"{total_rmse_loss.item():.4f} kPa"
 
         non_zero_mask = original_pressure > 0
         contact_rmse_str = "N/A"
@@ -174,8 +178,9 @@ def save_pressure_heatmap(image_path, pose_tensor, pressure_tensor, original_pre
             fig = plt.figure(figsize=(12, 12))
             gs = fig.add_gridspec(2, 2)
 
-        fig.suptitle(f"Subject-{subject_id} Take-{take_id} Index-{index:05d} \nOverall RMSE: {total_rmse_loss.item():.4f} kPa \nContact Area RMSE: {contact_rmse_str}")
-
+        fig.suptitle(f"Subject-{subject_id} Take-{take_id} Index-{index:05d} \nOverall RMSE: {total_rmse_str} \nContact Area RMSE: {contact_rmse_str}")
+        # fig.suptitle(f"Internet Image \nOverall RMSE: {total_rmse_str} \nContact Area RMSE: {contact_rmse_str}")
+        
         # Column 2: Generated Pressure and Differnece map(common to all cases)
         gs_col2 = gs[:, 1].subgridspec(2, 1, hspace=0.3)
 
@@ -413,9 +418,9 @@ if __name__ == "__main__":
     indices = [139,4174,4536,4865,5160,5464,5600,5800,6020,6306,6668,727,7013,7186,7391,7652,7986,8610,9129,9507,9867,10104,1166,10472,11147,11500,12034,12671,13306,13734,14153,14470,14749,1629,15391,15723,16310,16836,2095,2444,2963,3392,3810] #keypose indexes of subject 7 take 3
     
     MODEL_CHECKPOINT_PATH = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_75_pressure_estimation_new.pth"
-    BASE_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/inference_results/pressure_estimation_results_image+pose_different_view"
+    BASE_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/inference_results"
     USE_IMAGE = True
-    USE_POSE = True
+    USE_POSE = False
     DEVICE = torch.device("cuda:0")
     LOSS_FN = nn.MSELoss(reduction='mean')
     
@@ -425,7 +430,7 @@ if __name__ == "__main__":
 
     print(f"Using device: {DEVICE}")
 
-
+    INTERNET_IMAGE_PATH = '/scratch/avs7793/work_done/poseembroider/new_model/tai-chi-internet.jpg'
     # --- Main Loop ---
     # Iterate through each specified index to generate and save pressure map visualizations.
     for index in indices:
@@ -434,6 +439,7 @@ if __name__ == "__main__":
         # --- Data Loading ---
         # Construct file paths and load the image, original pressure, and pose data.
         image_path = f"/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_{subject_id}/take_{take_id:}_another_view/{index:05d}.png"
+        # image_path = INTERNET_IMAGE_PATH
     
         pressure_path = f"/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/pressure/pressure_subject{subject_id}_take{take_id}.pt"
         pressure = torch.load(pressure_path)
@@ -446,7 +452,7 @@ if __name__ == "__main__":
                 
         # --- Save Visualization ---
         # Define output path and save the comparison heatmap.
-        save_file_name = f"pressure_estimation_image+pose_subject{subject_id}_take{take_id}_index{index}.png"    
+        save_file_name = f"pressure_estimation_image_subject{subject_id}_take{take_id}_index{index}.png"    
         save_path = os.path.join(BASE_PATH, save_file_name)
 
 
