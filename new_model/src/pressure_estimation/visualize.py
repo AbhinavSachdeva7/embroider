@@ -1,28 +1,17 @@
 import torch
 import torch.nn as nn
-import torch.optim as optim
-import torch.utils.data as data
 import torchvision.transforms as transforms
-import torchvision.datasets as datasets
-from torch.utils.data import DataLoader
 from new_model.src.pressure_estimation.model import PressureEstimatorNew
 import new_model.src.config as config
-from new_model.src.data_loader.dataset import ImagePosePressureDataset
-from tqdm import tqdm
 import os
-import re
 from PIL import Image
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib
 import torch
 import smplx
-import trimesh
 import cv2
 import os
-from tqdm import tqdm
-import matplotlib.pyplot as plt
 
 
 """
@@ -420,7 +409,7 @@ if __name__ == "__main__":
     MODEL_CHECKPOINT_PATH = "/scratch/avs7793/work_done/poseembroider/new_model/src/checkpoints/model_epoch_75_pressure_estimation_new.pth"
     BASE_PATH = f"/scratch/avs7793/work_done/poseembroider/new_model/inference_results"
     USE_IMAGE = True
-    USE_POSE = False
+    USE_POSE = True
     DEVICE = torch.device("cuda:0")
     LOSS_FN = nn.MSELoss(reduction='mean')
     
@@ -480,4 +469,4 @@ if __name__ == "__main__":
         
         
         
-        # break
+        break
