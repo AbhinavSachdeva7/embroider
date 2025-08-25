@@ -126,10 +126,10 @@ src/
 ├── inference2.py # Script for qualitative retrieval visualization
 ├── loss_functions.py # Loss functions for training
 ├── pressure_estimation/ # Code for the downstream pressure estimation task
-│ ├── model.py
-│ ├── train.py
-│ ├── test.py
-│ └── visualize.py
+│ ├── model.py # Code for the Pressure Estimation Model
+│ ├── train.py # Code to train the Pressure Estimation Model (Projection Layers) on Images
+│ ├── test.py # Benchmark the Pressure Estimation Model
+│ └── visualize.py # Visualize the results of the Pressure Estimation Model on the tai-chi keyposes of Subject 7, Take 3
 ├── train_loop.py # Main training script for the retrieval model
 └── transformer/ # Fusion transformer implementation
 ```
