@@ -1,0 +1,4016 @@
+{
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/00140.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/00140.png",
+    "full_dataset_idx": 938625,
+    "test_dataset_idx": 221762,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 24,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          125799,
+          206597,
+          241080
+        ],
+        "top_3_scores": [
+          0.4586302936077118,
+          0.45460203289985657,
+          0.45258042216300964
+        ],
+        "top_3_full_dataset_indices": [
+          938698,
+          938696,
+          938695
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 10,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          30750,
+          192849,
+          250470
+        ],
+        "top_3_scores": [
+          0.7123530507087708,
+          0.6768720149993896,
+          0.6735957264900208
+        ],
+        "top_3_full_dataset_indices": [
+          938649,
+          938638,
+          938659
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 30,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          75781,
+          200756,
+          116846
+        ],
+        "top_3_scores": [
+          0.7055876851081848,
+          0.6921460032463074,
+          0.6711229085922241
+        ],
+        "top_3_full_dataset_indices": [
+          938600,
+          938596,
+          938618
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 42,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          112720,
+          102420,
+          113215
+        ],
+        "top_3_scores": [
+          0.7613312602043152,
+          0.7245355844497681,
+          0.7210364937782288
+        ],
+        "top_3_full_dataset_indices": [
+          921743,
+          921739,
+          921749
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 12,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          145950,
+          130396,
+          78017
+        ],
+        "top_3_scores": [
+          0.8265701532363892,
+          0.7925331592559814,
+          0.7787384390830994
+        ],
+        "top_3_full_dataset_indices": [
+          938549,
+          938554,
+          938547
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          250788,
+          217452,
+          47082
+        ],
+        "top_3_scores": [
+          0.4881722331047058,
+          0.48236390948295593,
+          0.46726110577583313
+        ],
+        "top_3_full_dataset_indices": [
+          921705,
+          921703,
+          921701
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 18,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          30750,
+          63129,
+          16766
+        ],
+        "top_3_scores": [
+          0.6936852335929871,
+          0.6812695264816284,
+          0.6708322167396545
+        ],
+        "top_3_full_dataset_indices": [
+          938649,
+          938543,
+          921612
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 11,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          200450,
+          187792,
+          30750
+        ],
+        "top_3_scores": [
+          0.4672083258628845,
+          0.46665602922439575,
+          0.46169671416282654
+        ],
+        "top_3_full_dataset_indices": [
+          938573,
+          938684,
+          938649
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 0,
+        "test_dataset_query_idx": 221762,
+        "ground_truth_rank": 15,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          75781,
+          200756,
+          37792
+        ],
+        "top_3_scores": [
+          0.8964009881019592,
+          0.8694971203804016,
+          0.837717592716217
+        ],
+        "top_3_full_dataset_indices": [
+          938600,
+          938596,
+          938589
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/05159.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/05159.png",
+    "full_dataset_idx": 943644,
+    "test_dataset_idx": 122904,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 4,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          166215,
+          3592,
+          236501
+        ],
+        "top_3_scores": [
+          0.5020160675048828,
+          0.5007611513137817,
+          0.48522108793258667
+        ],
+        "top_3_full_dataset_indices": [
+          959772,
+          959771,
+          959777
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          144391,
+          122904,
+          94405
+        ],
+        "top_3_scores": [
+          0.591243326663971,
+          0.5868752598762512,
+          0.5866143703460693
+        ],
+        "top_3_full_dataset_indices": [
+          943633,
+          943644,
+          943634
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 4,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          800,
+          235689,
+          236501
+        ],
+        "top_3_scores": [
+          0.671565055847168,
+          0.6624900698661804,
+          0.6595422029495239
+        ],
+        "top_3_full_dataset_indices": [
+          943034,
+          926004,
+          959777
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 8,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          131673,
+          68175,
+          144391
+        ],
+        "top_3_scores": [
+          0.6261582374572754,
+          0.6086038947105408,
+          0.5977330207824707
+        ],
+        "top_3_full_dataset_indices": [
+          943016,
+          943014,
+          943633
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          94405,
+          90870,
+          144391
+        ],
+        "top_3_scores": [
+          0.8612371683120728,
+          0.8609316945075989,
+          0.8326587080955505
+        ],
+        "top_3_full_dataset_indices": [
+          943634,
+          943628,
+          943633
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 12,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          23892,
+          3592,
+          56776
+        ],
+        "top_3_scores": [
+          0.4188082814216614,
+          0.41749870777130127,
+          0.41586101055145264
+        ],
+        "top_3_full_dataset_indices": [
+          926604,
+          959771,
+          926602
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 4,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          144391,
+          94405,
+          90870
+        ],
+        "top_3_scores": [
+          0.6378045678138733,
+          0.6327836513519287,
+          0.622413158416748
+        ],
+        "top_3_full_dataset_indices": [
+          943633,
+          943634,
+          943628
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          3592,
+          166215,
+          122904
+        ],
+        "top_3_scores": [
+          0.5159789323806763,
+          0.514042854309082,
+          0.5085994601249695
+        ],
+        "top_3_full_dataset_indices": [
+          959771,
+          959772,
+          943644
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 1,
+        "test_dataset_query_idx": 122904,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          94405,
+          90870,
+          122904
+        ],
+        "top_3_scores": [
+          0.8520181179046631,
+          0.8429307341575623,
+          0.8305940628051758
+        ],
+        "top_3_full_dataset_indices": [
+          943634,
+          943628,
+          943644
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/05463.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/05463.png",
+    "full_dataset_idx": 943948,
+    "test_dataset_idx": 104483,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          2665,
+          104483,
+          1308
+        ],
+        "top_3_scores": [
+          0.6173515915870667,
+          0.6039876341819763,
+          0.5804873704910278
+        ],
+        "top_3_full_dataset_indices": [
+          943961,
+          943948,
+          943943
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 23,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          72265,
+          30727,
+          64320
+        ],
+        "top_3_scores": [
+          0.7737074494361877,
+          0.7649440169334412,
+          0.7464234232902527
+        ],
+        "top_3_full_dataset_indices": [
+          960680,
+          960691,
+          960712
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 7,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          2665,
+          86170,
+          1308
+        ],
+        "top_3_scores": [
+          0.8347275257110596,
+          0.7955125570297241,
+          0.750825047492981
+        ],
+        "top_3_full_dataset_indices": [
+          943961,
+          943966,
+          943943
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 11,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          64320,
+          234403,
+          87628
+        ],
+        "top_3_scores": [
+          0.8034853935241699,
+          0.7823904752731323,
+          0.764381468296051
+        ],
+        "top_3_full_dataset_indices": [
+          960712,
+          943941,
+          960708
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 15,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          223106,
+          2665,
+          152861
+        ],
+        "top_3_scores": [
+          1.0397895574569702,
+          0.9827847480773926,
+          0.9772396087646484
+        ],
+        "top_3_full_dataset_indices": [
+          943974,
+          943961,
+          960735
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          87628,
+          64320,
+          116736
+        ],
+        "top_3_scores": [
+          0.7368253469467163,
+          0.7333806753158569,
+          0.719417154788971
+        ],
+        "top_3_full_dataset_indices": [
+          960708,
+          960712,
+          960718
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 13,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          64320,
+          234403,
+          87628
+        ],
+        "top_3_scores": [
+          0.7782244086265564,
+          0.7377921342849731,
+          0.7354868650436401
+        ],
+        "top_3_full_dataset_indices": [
+          960712,
+          943941,
+          960708
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 1,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          104483,
+          2665,
+          87628
+        ],
+        "top_3_scores": [
+          0.7566542029380798,
+          0.741258978843689,
+          0.7318720817565918
+        ],
+        "top_3_full_dataset_indices": [
+          943948,
+          943961,
+          960708
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 2,
+        "test_dataset_query_idx": 104483,
+        "ground_truth_rank": 8,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          2665,
+          86170,
+          223106
+        ],
+        "top_3_scores": [
+          1.032537817955017,
+          1.0015040636062622,
+          0.9231724143028259
+        ],
+        "top_3_full_dataset_indices": [
+          943961,
+          943966,
+          943974
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/05601.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/05601.png",
+    "full_dataset_idx": 944086,
+    "test_dataset_idx": 31662,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 8,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          102118,
+          204588,
+          154590
+        ],
+        "top_3_scores": [
+          0.5788009762763977,
+          0.5628420114517212,
+          0.5627541542053223
+        ],
+        "top_3_full_dataset_indices": [
+          960853,
+          960843,
+          960844
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 67,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          174774,
+          85831,
+          164803
+        ],
+        "top_3_scores": [
+          0.7302789092063904,
+          0.724319577217102,
+          0.6800620555877686
+        ],
+        "top_3_full_dataset_indices": [
+          927071,
+          944110,
+          927074
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          204588,
+          102118,
+          154590
+        ],
+        "top_3_scores": [
+          0.89258873462677,
+          0.8698087334632874,
+          0.8691105246543884
+        ],
+        "top_3_full_dataset_indices": [
+          960843,
+          960853,
+          960844
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 97,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          174774,
+          164803,
+          189195
+        ],
+        "top_3_scores": [
+          0.89789879322052,
+          0.8162151575088501,
+          0.7845112085342407
+        ],
+        "top_3_full_dataset_indices": [
+          927071,
+          927074,
+          927063
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          135400,
+          31662,
+          204588
+        ],
+        "top_3_scores": [
+          0.7460367679595947,
+          0.7077473998069763,
+          0.6878407597541809
+        ],
+        "top_3_full_dataset_indices": [
+          944083,
+          944086,
+          960843
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          102118,
+          137576,
+          147584
+        ],
+        "top_3_scores": [
+          0.3398282527923584,
+          0.3267040252685547,
+          0.3172258138656616
+        ],
+        "top_3_full_dataset_indices": [
+          960853,
+          910143,
+          910147
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 76,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          174774,
+          164803,
+          85831
+        ],
+        "top_3_scores": [
+          0.8984455466270447,
+          0.8334941267967224,
+          0.7774128317832947
+        ],
+        "top_3_full_dataset_indices": [
+          927071,
+          927074,
+          944110
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 4,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          102118,
+          154590,
+          204588
+        ],
+        "top_3_scores": [
+          0.6887984871864319,
+          0.6585839986801147,
+          0.6561324000358582
+        ],
+        "top_3_full_dataset_indices": [
+          960853,
+          960844,
+          960843
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 3,
+        "test_dataset_query_idx": 31662,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          135400,
+          31662,
+          145427
+        ],
+        "top_3_scores": [
+          1.0161653757095337,
+          0.9713523387908936,
+          0.9677303433418274
+        ],
+        "top_3_full_dataset_indices": [
+          944083,
+          944086,
+          944076
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/05800.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/05800.png",
+    "full_dataset_idx": 944285,
+    "test_dataset_idx": 87947,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 6,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          97581,
+          35602,
+          119553
+        ],
+        "top_3_scores": [
+          0.5858549475669861,
+          0.5729101300239563,
+          0.4742977023124695
+        ],
+        "top_3_full_dataset_indices": [
+          961030,
+          961035,
+          961018
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 25,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          149649,
+          38321,
+          35187
+        ],
+        "top_3_scores": [
+          0.5158765316009521,
+          0.5132555365562439,
+          0.50618976354599
+        ],
+        "top_3_full_dataset_indices": [
+          940543,
+          944330,
+          944326
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 1,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          87947,
+          179196,
+          97581
+        ],
+        "top_3_scores": [
+          0.8915479779243469,
+          0.8500620722770691,
+          0.8337202072143555
+        ],
+        "top_3_full_dataset_indices": [
+          944285,
+          944280,
+          961030
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 16,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          79889,
+          149649,
+          35187
+        ],
+        "top_3_scores": [
+          0.7203163504600525,
+          0.7003453969955444,
+          0.6821926236152649
+        ],
+        "top_3_full_dataset_indices": [
+          940547,
+          940543,
+          944326
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 6,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          119553,
+          179196,
+          209963
+        ],
+        "top_3_scores": [
+          0.9093491435050964,
+          0.8909103274345398,
+          0.8896700143814087
+        ],
+        "top_3_full_dataset_indices": [
+          961018,
+          944280,
+          961016
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          134416,
+          196767,
+          35602
+        ],
+        "top_3_scores": [
+          0.4662538468837738,
+          0.4513779878616333,
+          0.44994056224823
+        ],
+        "top_3_full_dataset_indices": [
+          961047,
+          961050,
+          961035
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 20,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          38321,
+          35187,
+          149649
+        ],
+        "top_3_scores": [
+          0.6779526472091675,
+          0.6620537042617798,
+          0.6568318605422974
+        ],
+        "top_3_full_dataset_indices": [
+          944330,
+          944326,
+          940543
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          35602,
+          97581,
+          134416
+        ],
+        "top_3_scores": [
+          0.6213693618774414,
+          0.6169276833534241,
+          0.5866601467132568
+        ],
+        "top_3_full_dataset_indices": [
+          961035,
+          961030,
+          961047
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 4,
+        "test_dataset_query_idx": 87947,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          179196,
+          87947,
+          107346
+        ],
+        "top_3_scores": [
+          0.9692965745925903,
+          0.9691485166549683,
+          0.9284537434577942
+        ],
+        "top_3_full_dataset_indices": [
+          944280,
+          944285,
+          944277
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/06305.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/06305.png",
+    "full_dataset_idx": 944790,
+    "test_dataset_idx": 21062,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 27,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          16117,
+          46124,
+          8080
+        ],
+        "top_3_scores": [
+          0.5056633949279785,
+          0.49992236495018005,
+          0.49928680062294006
+        ],
+        "top_3_full_dataset_indices": [
+          961518,
+          961529,
+          928162
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          38321,
+          215580,
+          93888
+        ],
+        "top_3_scores": [
+          0.5623155832290649,
+          0.5144649744033813,
+          0.500707745552063
+        ],
+        "top_3_full_dataset_indices": [
+          944330,
+          944777,
+          944785
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          52780,
+          21062,
+          14745
+        ],
+        "top_3_scores": [
+          0.8360918760299683,
+          0.8135734796524048,
+          0.7850303053855896
+        ],
+        "top_3_full_dataset_indices": [
+          944794,
+          944790,
+          961513
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 16,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          106670,
+          255811,
+          162559
+        ],
+        "top_3_scores": [
+          0.6149017810821533,
+          0.5828115344047546,
+          0.5434131026268005
+        ],
+        "top_3_full_dataset_indices": [
+          927770,
+          927773,
+          927795
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          52780,
+          21062,
+          93888
+        ],
+        "top_3_scores": [
+          0.8741730451583862,
+          0.8705331087112427,
+          0.82820725440979
+        ],
+        "top_3_full_dataset_indices": [
+          944794,
+          944790,
+          944785
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 1,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          21062,
+          52780,
+          93888
+        ],
+        "top_3_scores": [
+          0.5240378975868225,
+          0.5208643078804016,
+          0.5135074257850647
+        ],
+        "top_3_full_dataset_indices": [
+          944790,
+          944794,
+          944785
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          214431,
+          215580,
+          93888
+        ],
+        "top_3_scores": [
+          0.6045721173286438,
+          0.5663838386535645,
+          0.5562762022018433
+        ],
+        "top_3_full_dataset_indices": [
+          961481,
+          944777,
+          944785
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 4,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          46124,
+          52780,
+          207393
+        ],
+        "top_3_scores": [
+          0.5913262963294983,
+          0.5852416753768921,
+          0.5776090025901794
+        ],
+        "top_3_full_dataset_indices": [
+          961529,
+          944794,
+          961531
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 5,
+        "test_dataset_query_idx": 21062,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          52780,
+          21062,
+          93888
+        ],
+        "top_3_scores": [
+          0.8873863220214844,
+          0.8676725029945374,
+          0.8156248927116394
+        ],
+        "top_3_full_dataset_indices": [
+          944794,
+          944790,
+          944785
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/06667.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/06667.png",
+    "full_dataset_idx": 945152,
+    "test_dataset_idx": 30185,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 6,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          173327,
+          80063,
+          204848
+        ],
+        "top_3_scores": [
+          0.5785640478134155,
+          0.5741163492202759,
+          0.5731459856033325
+        ],
+        "top_3_full_dataset_indices": [
+          928159,
+          928154,
+          928161
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          113581,
+          223771,
+          54554
+        ],
+        "top_3_scores": [
+          0.6502311825752258,
+          0.6338430643081665,
+          0.6218780279159546
+        ],
+        "top_3_full_dataset_indices": [
+          945170,
+          945156,
+          945171
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 14,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          151467,
+          163219,
+          250014
+        ],
+        "top_3_scores": [
+          0.8819105625152588,
+          0.8604465126991272,
+          0.8361805081367493
+        ],
+        "top_3_full_dataset_indices": [
+          961858,
+          961862,
+          945140
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 12,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          242318,
+          113581,
+          152242
+        ],
+        "top_3_scores": [
+          0.7368851900100708,
+          0.7352284789085388,
+          0.7349621057510376
+        ],
+        "top_3_full_dataset_indices": [
+          920321,
+          945170,
+          920330
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 18,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          151467,
+          163219,
+          43887
+        ],
+        "top_3_scores": [
+          0.9336117506027222,
+          0.9256987571716309,
+          0.9249735474586487
+        ],
+        "top_3_full_dataset_indices": [
+          961858,
+          961862,
+          945136
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          251872,
+          236235,
+          30185
+        ],
+        "top_3_scores": [
+          0.6457856297492981,
+          0.6421033143997192,
+          0.6410558819770813
+        ],
+        "top_3_full_dataset_indices": [
+          945147,
+          945145,
+          945152
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 4,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          113581,
+          223771,
+          54554
+        ],
+        "top_3_scores": [
+          0.7654339671134949,
+          0.7416490316390991,
+          0.7238037586212158
+        ],
+        "top_3_full_dataset_indices": [
+          945170,
+          945156,
+          945171
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 1,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          30185,
+          80063,
+          223771
+        ],
+        "top_3_scores": [
+          0.6792781352996826,
+          0.67345130443573,
+          0.6653820872306824
+        ],
+        "top_3_full_dataset_indices": [
+          945152,
+          928154,
+          945156
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 6,
+        "test_dataset_query_idx": 30185,
+        "ground_truth_rank": 11,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          151467,
+          250014,
+          163219
+        ],
+        "top_3_scores": [
+          1.0153427124023438,
+          1.0059512853622437,
+          0.9882930517196655
+        ],
+        "top_3_full_dataset_indices": [
+          961858,
+          945140,
+          961862
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/00726.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/00726.png",
+    "full_dataset_idx": 939211,
+    "test_dataset_idx": 72871,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 33,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          220857,
+          81761,
+          102110
+        ],
+        "top_3_scores": [
+          0.4605284333229065,
+          0.447341650724411,
+          0.4455457031726837
+        ],
+        "top_3_full_dataset_indices": [
+          956110,
+          939229,
+          939237
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          9698,
+          81761,
+          33877
+        ],
+        "top_3_scores": [
+          0.7295700907707214,
+          0.6605992317199707,
+          0.6422791481018066
+        ],
+        "top_3_full_dataset_indices": [
+          939223,
+          939229,
+          939214
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 8,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          178965,
+          134674,
+          58276
+        ],
+        "top_3_scores": [
+          0.8765158653259277,
+          0.8548591136932373,
+          0.8214985728263855
+        ],
+        "top_3_full_dataset_indices": [
+          956097,
+          956099,
+          939197
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 4,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          33877,
+          66146,
+          9698
+        ],
+        "top_3_scores": [
+          0.7305454015731812,
+          0.7266309261322021,
+          0.7206857800483704
+        ],
+        "top_3_full_dataset_indices": [
+          939214,
+          905182,
+          939223
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 10,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          178965,
+          134674,
+          220857
+        ],
+        "top_3_scores": [
+          1.101884365081787,
+          1.0894246101379395,
+          1.0300250053405762
+        ],
+        "top_3_full_dataset_indices": [
+          956097,
+          956099,
+          956110
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 18,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          94146,
+          126444,
+          245209
+        ],
+        "top_3_scores": [
+          0.6049996018409729,
+          0.6040956377983093,
+          0.598979115486145
+        ],
+        "top_3_full_dataset_indices": [
+          956088,
+          922225,
+          956083
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          9698,
+          33877,
+          72871
+        ],
+        "top_3_scores": [
+          0.7565826773643494,
+          0.7249384522438049,
+          0.6877912282943726
+        ],
+        "top_3_full_dataset_indices": [
+          939223,
+          939214,
+          939211
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 11,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          94146,
+          178965,
+          15536
+        ],
+        "top_3_scores": [
+          0.6200429201126099,
+          0.6196231842041016,
+          0.6149130463600159
+        ],
+        "top_3_full_dataset_indices": [
+          956088,
+          956097,
+          922229
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 7,
+        "test_dataset_query_idx": 72871,
+        "ground_truth_rank": 8,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          178965,
+          134674,
+          220857
+        ],
+        "top_3_scores": [
+          1.1478558778762817,
+          1.1291872262954712,
+          1.0452741384506226
+        ],
+        "top_3_full_dataset_indices": [
+          956097,
+          956099,
+          956110
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/07187.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/07187.png",
+    "full_dataset_idx": 945672,
+    "test_dataset_idx": 45897,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 18,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          227987,
+          66669,
+          226315
+        ],
+        "top_3_scores": [
+          0.5961595177650452,
+          0.5886317491531372,
+          0.5885063409805298
+        ],
+        "top_3_full_dataset_indices": [
+          962388,
+          962386,
+          962403
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          227214,
+          133234,
+          45897
+        ],
+        "top_3_scores": [
+          0.6385475397109985,
+          0.6090937256813049,
+          0.5841103196144104
+        ],
+        "top_3_full_dataset_indices": [
+          945677,
+          945675,
+          945672
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 20,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          5320,
+          226315,
+          66669
+        ],
+        "top_3_scores": [
+          0.9681459069252014,
+          0.9677239060401917,
+          0.9520688652992249
+        ],
+        "top_3_full_dataset_indices": [
+          962372,
+          962403,
+          962386
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 6,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          243793,
+          204695,
+          120487
+        ],
+        "top_3_scores": [
+          0.5586923956871033,
+          0.49613499641418457,
+          0.49373751878738403
+        ],
+        "top_3_full_dataset_indices": [
+          923065,
+          923066,
+          923063
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 11,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          66669,
+          34534,
+          227987
+        ],
+        "top_3_scores": [
+          1.0116956233978271,
+          1.0084947347640991,
+          0.9970824122428894
+        ],
+        "top_3_full_dataset_indices": [
+          962386,
+          945657,
+          962388
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 25,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          9043,
+          5320,
+          186336
+        ],
+        "top_3_scores": [
+          0.7351978421211243,
+          0.7280073165893555,
+          0.7228312492370605
+        ],
+        "top_3_full_dataset_indices": [
+          962369,
+          962372,
+          962356
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          227214,
+          133234,
+          45897
+        ],
+        "top_3_scores": [
+          0.6955291032791138,
+          0.6611396074295044,
+          0.6481788158416748
+        ],
+        "top_3_full_dataset_indices": [
+          945677,
+          945675,
+          945672
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 24,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          3481,
+          191947,
+          156554
+        ],
+        "top_3_scores": [
+          0.7865989208221436,
+          0.786342978477478,
+          0.7856707572937012
+        ],
+        "top_3_full_dataset_indices": [
+          962377,
+          962378,
+          962376
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 8,
+        "test_dataset_query_idx": 45897,
+        "ground_truth_rank": 18,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          226315,
+          66669,
+          227987
+        ],
+        "top_3_scores": [
+          1.231188178062439,
+          1.2304425239562988,
+          1.2104158401489258
+        ],
+        "top_3_full_dataset_indices": [
+          962403,
+          962386,
+          962388
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/07390.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/07390.png",
+    "full_dataset_idx": 945875,
+    "test_dataset_idx": 29235,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 15,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          11274,
+          24041,
+          259354
+        ],
+        "top_3_scores": [
+          0.5557333827018738,
+          0.549917995929718,
+          0.5475729703903198
+        ],
+        "top_3_full_dataset_indices": [
+          928887,
+          928889,
+          928881
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 21,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          208943,
+          90402,
+          217641
+        ],
+        "top_3_scores": [
+          0.7015419006347656,
+          0.6488073468208313,
+          0.6473908424377441
+        ],
+        "top_3_full_dataset_indices": [
+          962615,
+          962620,
+          962613
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          150285,
+          29235,
+          89738
+        ],
+        "top_3_scores": [
+          0.9346001148223877,
+          0.9242798686027527,
+          0.9237020015716553
+        ],
+        "top_3_full_dataset_indices": [
+          962593,
+          945875,
+          945878
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 46,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          208943,
+          99190,
+          90402
+        ],
+        "top_3_scores": [
+          0.660420298576355,
+          0.629647970199585,
+          0.6158998608589172
+        ],
+        "top_3_full_dataset_indices": [
+          962615,
+          911944,
+          962620
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 10,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          93184,
+          73318,
+          120817
+        ],
+        "top_3_scores": [
+          0.9847375154495239,
+          0.9355480074882507,
+          0.9182791113853455
+        ],
+        "top_3_full_dataset_indices": [
+          945898,
+          945901,
+          945902
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 29,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          24041,
+          11274,
+          161913
+        ],
+        "top_3_scores": [
+          0.538525402545929,
+          0.537824273109436,
+          0.5238125324249268
+        ],
+        "top_3_full_dataset_indices": [
+          928889,
+          928887,
+          911978
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 24,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          208943,
+          90402,
+          217641
+        ],
+        "top_3_scores": [
+          0.7945592999458313,
+          0.7377957701683044,
+          0.7113404273986816
+        ],
+        "top_3_full_dataset_indices": [
+          962615,
+          962620,
+          962613
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 12,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          11274,
+          24041,
+          259354
+        ],
+        "top_3_scores": [
+          0.754082441329956,
+          0.748867928981781,
+          0.7462124228477478
+        ],
+        "top_3_full_dataset_indices": [
+          928887,
+          928889,
+          928881
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 9,
+        "test_dataset_query_idx": 29235,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          150285,
+          29235,
+          89738
+        ],
+        "top_3_scores": [
+          1.107814908027649,
+          1.0988298654556274,
+          1.0868784189224243
+        ],
+        "top_3_full_dataset_indices": [
+          962593,
+          945875,
+          945878
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/09866.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/09866.png",
+    "full_dataset_idx": 948351,
+    "test_dataset_idx": 220154,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 6,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          31303,
+          247373,
+          39715
+        ],
+        "top_3_scores": [
+          0.6058111786842346,
+          0.5986106395721436,
+          0.5877435803413391
+        ],
+        "top_3_full_dataset_indices": [
+          965024,
+          965027,
+          965029
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 18,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          81912,
+          55212,
+          253455
+        ],
+        "top_3_scores": [
+          0.8218916058540344,
+          0.8117522597312927,
+          0.7508917450904846
+        ],
+        "top_3_full_dataset_indices": [
+          931435,
+          965035,
+          931447
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 6,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          81912,
+          196066,
+          212103
+        ],
+        "top_3_scores": [
+          0.9958447813987732,
+          0.9933681488037109,
+          0.9932065606117249
+        ],
+        "top_3_full_dataset_indices": [
+          931435,
+          948348,
+          931416
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 7,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          81912,
+          253455,
+          55212
+        ],
+        "top_3_scores": [
+          0.8566108345985413,
+          0.7953640222549438,
+          0.7731603384017944
+        ],
+        "top_3_full_dataset_indices": [
+          931435,
+          931447,
+          965035
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          218182,
+          238874,
+          58963
+        ],
+        "top_3_scores": [
+          0.777193009853363,
+          0.7680752873420715,
+          0.7675043940544128
+        ],
+        "top_3_full_dataset_indices": [
+          965013,
+          948350,
+          948346
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 10,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          39715,
+          247373,
+          31303
+        ],
+        "top_3_scores": [
+          0.6922391653060913,
+          0.6906922459602356,
+          0.6786884665489197
+        ],
+        "top_3_full_dataset_indices": [
+          965029,
+          965027,
+          965024
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          81912,
+          55212,
+          253455
+        ],
+        "top_3_scores": [
+          0.9679849147796631,
+          0.8928190469741821,
+          0.8570783138275146
+        ],
+        "top_3_full_dataset_indices": [
+          931435,
+          965035,
+          931447
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          247373,
+          31303,
+          39715
+        ],
+        "top_3_scores": [
+          0.7673406600952148,
+          0.7618808150291443,
+          0.7615105509757996
+        ],
+        "top_3_full_dataset_indices": [
+          965027,
+          965024,
+          965029
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 10,
+        "test_dataset_query_idx": 220154,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          196066,
+          238874,
+          220154
+        ],
+        "top_3_scores": [
+          0.9925397038459778,
+          0.9894436001777649,
+          0.9748417735099792
+        ],
+        "top_3_full_dataset_indices": [
+          948348,
+          948350,
+          948351
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/10103.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/10103.png",
+    "full_dataset_idx": 948588,
+    "test_dataset_idx": 82376,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 16,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          184384,
+          61733,
+          15395
+        ],
+        "top_3_scores": [
+          0.5268641710281372,
+          0.5246760249137878,
+          0.5217832922935486
+        ],
+        "top_3_full_dataset_indices": [
+          914807,
+          914810,
+          914811
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          144283,
+          88198,
+          245367
+        ],
+        "top_3_scores": [
+          0.6525205373764038,
+          0.5603249669075012,
+          0.5395210981369019
+        ],
+        "top_3_full_dataset_indices": [
+          931662,
+          948589,
+          957395
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 23,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          35065,
+          95718,
+          46474
+        ],
+        "top_3_scores": [
+          0.8580484390258789,
+          0.8380295634269714,
+          0.8337461352348328
+        ],
+        "top_3_full_dataset_indices": [
+          931685,
+          931686,
+          931673
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 25,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          144283,
+          142888,
+          36595
+        ],
+        "top_3_scores": [
+          0.5165340304374695,
+          0.47924739122390747,
+          0.4621593952178955
+        ],
+        "top_3_full_dataset_indices": [
+          931662,
+          948711,
+          931656
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          87000,
+          223260,
+          95718
+        ],
+        "top_3_scores": [
+          0.8833920359611511,
+          0.8603044152259827,
+          0.8601875305175781
+        ],
+        "top_3_full_dataset_indices": [
+          931690,
+          948566,
+          931686
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 14,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          61733,
+          15395,
+          184384
+        ],
+        "top_3_scores": [
+          0.5781985521316528,
+          0.5778792500495911,
+          0.5717069506645203
+        ],
+        "top_3_full_dataset_indices": [
+          914810,
+          914811,
+          914807
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 7,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          144283,
+          88198,
+          53519
+        ],
+        "top_3_scores": [
+          0.7142648696899414,
+          0.6043428182601929,
+          0.5933927893638611
+        ],
+        "top_3_full_dataset_indices": [
+          931662,
+          948589,
+          965257
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 15,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          61733,
+          15395,
+          184384
+        ],
+        "top_3_scores": [
+          0.6061217188835144,
+          0.604335606098175,
+          0.6019739508628845
+        ],
+        "top_3_full_dataset_indices": [
+          914810,
+          914811,
+          914807
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 11,
+        "test_dataset_query_idx": 82376,
+        "ground_truth_rank": 14,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          95718,
+          87000,
+          35065
+        ],
+        "top_3_scores": [
+          1.0036121606826782,
+          1.0017449855804443,
+          1.000058889389038
+        ],
+        "top_3_full_dataset_indices": [
+          931686,
+          931690,
+          931685
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/10104.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/10104.png",
+    "full_dataset_idx": 948589,
+    "test_dataset_idx": 88198,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 14,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          184384,
+          61733,
+          15395
+        ],
+        "top_3_scores": [
+          0.5430800318717957,
+          0.5413039326667786,
+          0.538464367389679
+        ],
+        "top_3_full_dataset_indices": [
+          914807,
+          914810,
+          914811
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          144283,
+          88198,
+          245367
+        ],
+        "top_3_scores": [
+          0.6267191767692566,
+          0.5413613319396973,
+          0.5283668041229248
+        ],
+        "top_3_full_dataset_indices": [
+          931662,
+          948589,
+          957395
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 20,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          35065,
+          95718,
+          46474
+        ],
+        "top_3_scores": [
+          0.8637143969535828,
+          0.8424060344696045,
+          0.8372982144355774
+        ],
+        "top_3_full_dataset_indices": [
+          931685,
+          931686,
+          931673
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 10,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          144283,
+          142888,
+          36595
+        ],
+        "top_3_scores": [
+          0.5332445502281189,
+          0.47704851627349854,
+          0.4622838497161865
+        ],
+        "top_3_full_dataset_indices": [
+          931662,
+          948711,
+          931656
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 11,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          87000,
+          95718,
+          223260
+        ],
+        "top_3_scores": [
+          0.8372855186462402,
+          0.8336935639381409,
+          0.8072391152381897
+        ],
+        "top_3_full_dataset_indices": [
+          931690,
+          931686,
+          948566
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 14,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          15395,
+          61733,
+          12855
+        ],
+        "top_3_scores": [
+          0.724703848361969,
+          0.7235671281814575,
+          0.7205814719200134
+        ],
+        "top_3_full_dataset_indices": [
+          914811,
+          914810,
+          914817
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          144283,
+          88198,
+          53519
+        ],
+        "top_3_scores": [
+          0.7047027349472046,
+          0.59919673204422,
+          0.5785852670669556
+        ],
+        "top_3_full_dataset_indices": [
+          931662,
+          948589,
+          965257
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 14,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          61733,
+          15395,
+          184384
+        ],
+        "top_3_scores": [
+          0.6392012238502502,
+          0.6382514238357544,
+          0.6321784257888794
+        ],
+        "top_3_full_dataset_indices": [
+          914810,
+          914811,
+          914807
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 12,
+        "test_dataset_query_idx": 88198,
+        "ground_truth_rank": 10,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          35065,
+          95718,
+          87000
+        ],
+        "top_3_scores": [
+          1.0268384218215942,
+          1.0241605043411255,
+          1.005818486213684
+        ],
+        "top_3_full_dataset_indices": [
+          931685,
+          931686,
+          931690
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/01167.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/01167.png",
+    "full_dataset_idx": 939652,
+    "test_dataset_idx": 235200,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 31,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          193155,
+          51118,
+          56033
+        ],
+        "top_3_scores": [
+          0.5298585295677185,
+          0.5268629789352417,
+          0.525069534778595
+        ],
+        "top_3_full_dataset_indices": [
+          956515,
+          956522,
+          956523
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 17,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          203187,
+          13942,
+          51118
+        ],
+        "top_3_scores": [
+          0.7098692059516907,
+          0.7064070701599121,
+          0.7051154375076294
+        ],
+        "top_3_full_dataset_indices": [
+          939668,
+          939662,
+          956522
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 8,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          104802,
+          85864,
+          39504
+        ],
+        "top_3_scores": [
+          0.9453895688056946,
+          0.9404056668281555,
+          0.938295841217041
+        ],
+        "top_3_full_dataset_indices": [
+          922655,
+          922648,
+          922654
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 16,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          51118,
+          13942,
+          203187
+        ],
+        "top_3_scores": [
+          0.7663300037384033,
+          0.7658136487007141,
+          0.7366743683815002
+        ],
+        "top_3_full_dataset_indices": [
+          956522,
+          939662,
+          939668
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 13,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          211213,
+          181789,
+          15108
+        ],
+        "top_3_scores": [
+          0.7472410202026367,
+          0.7458882331848145,
+          0.7250348329544067
+        ],
+        "top_3_full_dataset_indices": [
+          956504,
+          956502,
+          939633
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 8,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          58698,
+          85864,
+          87330
+        ],
+        "top_3_scores": [
+          0.6051746606826782,
+          0.6043514609336853,
+          0.5938894152641296
+        ],
+        "top_3_full_dataset_indices": [
+          922647,
+          922648,
+          956524
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 12,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          13942,
+          203187,
+          241174
+        ],
+        "top_3_scores": [
+          0.874801516532898,
+          0.8372508883476257,
+          0.8204023241996765
+        ],
+        "top_3_full_dataset_indices": [
+          939662,
+          939668,
+          939667
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 10,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          51118,
+          56033,
+          87330
+        ],
+        "top_3_scores": [
+          0.6016201376914978,
+          0.6002975702285767,
+          0.5989399552345276
+        ],
+        "top_3_full_dataset_indices": [
+          956522,
+          956523,
+          956524
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 13,
+        "test_dataset_query_idx": 235200,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          68249,
+          203187,
+          235200
+        ],
+        "top_3_scores": [
+          0.884110152721405,
+          0.8703197240829468,
+          0.8646960258483887
+        ],
+        "top_3_full_dataset_indices": [
+          939648,
+          939668,
+          939652
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/10473.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/10473.png",
+    "full_dataset_idx": 948958,
+    "test_dataset_idx": 30405,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 7,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          103620,
+          107702,
+          235168
+        ],
+        "top_3_scores": [
+          0.4844011962413788,
+          0.4824676811695099,
+          0.48089081048965454
+        ],
+        "top_3_full_dataset_indices": [
+          932059,
+          932055,
+          932060
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          64766,
+          30405,
+          160984
+        ],
+        "top_3_scores": [
+          1.0662168264389038,
+          1.0452938079833984,
+          0.932192862033844
+        ],
+        "top_3_full_dataset_indices": [
+          948960,
+          948958,
+          948949
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 25,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          135705,
+          24854,
+          166351
+        ],
+        "top_3_scores": [
+          0.8961514830589294,
+          0.8794853687286377,
+          0.8656200170516968
+        ],
+        "top_3_full_dataset_indices": [
+          915179,
+          915174,
+          948930
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 1,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          30405,
+          64766,
+          194353
+        ],
+        "top_3_scores": [
+          0.9795845150947571,
+          0.9639679193496704,
+          0.882340133190155
+        ],
+        "top_3_full_dataset_indices": [
+          948958,
+          948960,
+          965656
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          166351,
+          182005,
+          30405
+        ],
+        "top_3_scores": [
+          0.9718568325042725,
+          0.9666897058486938,
+          0.9311769604682922
+        ],
+        "top_3_full_dataset_indices": [
+          948930,
+          948932,
+          948958
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 3,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          150668,
+          64766,
+          30405
+        ],
+        "top_3_scores": [
+          0.6552823185920715,
+          0.6369798183441162,
+          0.6216039061546326
+        ],
+        "top_3_full_dataset_indices": [
+          948966,
+          948960,
+          948958
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 1,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          30405,
+          64766,
+          160984
+        ],
+        "top_3_scores": [
+          1.1225740909576416,
+          1.1118857860565186,
+          1.001604676246643
+        ],
+        "top_3_full_dataset_indices": [
+          948958,
+          948960,
+          948949
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          64766,
+          30405,
+          150668
+        ],
+        "top_3_scores": [
+          0.7239314913749695,
+          0.7196856737136841,
+          0.7050353288650513
+        ],
+        "top_3_full_dataset_indices": [
+          948960,
+          948958,
+          948966
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 14,
+        "test_dataset_query_idx": 30405,
+        "ground_truth_rank": 9,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          182005,
+          166351,
+          170282
+        ],
+        "top_3_scores": [
+          1.1449908018112183,
+          1.1438806056976318,
+          1.060346007347107
+        ],
+        "top_3_full_dataset_indices": [
+          948932,
+          948930,
+          948944
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/11147.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/11147.png",
+    "full_dataset_idx": 949632,
+    "test_dataset_idx": 95715,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 40,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          101025,
+          95333,
+          51442
+        ],
+        "top_3_scores": [
+          0.45278429985046387,
+          0.4493393003940582,
+          0.44682392477989197
+        ],
+        "top_3_full_dataset_indices": [
+          949608,
+          949609,
+          932698
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 31,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          92213,
+          101025,
+          19830
+        ],
+        "top_3_scores": [
+          0.5074895620346069,
+          0.4281013309955597,
+          0.41844186186790466
+        ],
+        "top_3_full_dataset_indices": [
+          932711,
+          949608,
+          932683
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 32,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          58773,
+          231518,
+          159450
+        ],
+        "top_3_scores": [
+          0.7706067562103271,
+          0.7702991962432861,
+          0.7699432969093323
+        ],
+        "top_3_full_dataset_indices": [
+          932701,
+          966245,
+          932700
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 35,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          92213,
+          41019,
+          19830
+        ],
+        "top_3_scores": [
+          0.5234689116477966,
+          0.47842320799827576,
+          0.4720541536808014
+        ],
+        "top_3_full_dataset_indices": [
+          932711,
+          915819,
+          932683
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 46,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          154642,
+          147232,
+          94378
+        ],
+        "top_3_scores": [
+          0.8763564825057983,
+          0.8580690622329712,
+          0.8530071377754211
+        ],
+        "top_3_full_dataset_indices": [
+          932666,
+          932668,
+          949566
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 84,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          221795,
+          55794,
+          79714
+        ],
+        "top_3_scores": [
+          0.4974815845489502,
+          0.4848700165748596,
+          0.4732372462749481
+        ],
+        "top_3_full_dataset_indices": [
+          966228,
+          966233,
+          915785
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 30,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          92213,
+          19830,
+          41019
+        ],
+        "top_3_scores": [
+          0.5830621123313904,
+          0.5044881105422974,
+          0.4781731069087982
+        ],
+        "top_3_full_dataset_indices": [
+          932711,
+          932683,
+          915819
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 49,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          55794,
+          221795,
+          558
+        ],
+        "top_3_scores": [
+          0.5438758730888367,
+          0.5352903008460999,
+          0.5339419841766357
+        ],
+        "top_3_full_dataset_indices": [
+          966233,
+          966228,
+          915799
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 15,
+        "test_dataset_query_idx": 95715,
+        "ground_truth_rank": 31,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          159450,
+          58773,
+          51442
+        ],
+        "top_3_scores": [
+          0.8308075070381165,
+          0.8244417309761047,
+          0.8206347823143005
+        ],
+        "top_3_full_dataset_indices": [
+          932700,
+          932701,
+          932698
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/11501.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/11501.png",
+    "full_dataset_idx": 949986,
+    "test_dataset_idx": 4255,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 17,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          243473,
+          255556,
+          140252
+        ],
+        "top_3_scores": [
+          0.4961574673652649,
+          0.4961279630661011,
+          0.49572697281837463
+        ],
+        "top_3_full_dataset_indices": [
+          933085,
+          933084,
+          933086
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 155,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          128121,
+          219044,
+          222879
+        ],
+        "top_3_scores": [
+          0.5845698118209839,
+          0.5680443048477173,
+          0.5426493287086487
+        ],
+        "top_3_full_dataset_indices": [
+          940160,
+          940159,
+          941910
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 7,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          20402,
+          20086,
+          53316
+        ],
+        "top_3_scores": [
+          0.7775482535362244,
+          0.7757094502449036,
+          0.7663595676422119
+        ],
+        "top_3_full_dataset_indices": [
+          933071,
+          933065,
+          933068
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 23,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          25538,
+          36141,
+          126094
+        ],
+        "top_3_scores": [
+          0.43679845333099365,
+          0.42351844906806946,
+          0.4186096489429474
+        ],
+        "top_3_full_dataset_indices": [
+          916169,
+          966592,
+          958550
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 45,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          134084,
+          15846,
+          51443
+        ],
+        "top_3_scores": [
+          0.9007776975631714,
+          0.8984082341194153,
+          0.8944246768951416
+        ],
+        "top_3_full_dataset_indices": [
+          933038,
+          933037,
+          966547
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 42,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          220177,
+          120992,
+          38911
+        ],
+        "top_3_scores": [
+          0.7362832427024841,
+          0.7361271381378174,
+          0.7358826994895935
+        ],
+        "top_3_full_dataset_indices": [
+          916135,
+          916142,
+          916143
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 68,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          126094,
+          101979,
+          193853
+        ],
+        "top_3_scores": [
+          0.5721086263656616,
+          0.5494452118873596,
+          0.5348315834999084
+        ],
+        "top_3_full_dataset_indices": [
+          958550,
+          958551,
+          958549
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 22,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          193398,
+          142052,
+          255556
+        ],
+        "top_3_scores": [
+          0.738765299320221,
+          0.7192047238349915,
+          0.7168070077896118
+        ],
+        "top_3_full_dataset_indices": [
+          916160,
+          933083,
+          933084
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 16,
+        "test_dataset_query_idx": 4255,
+        "ground_truth_rank": 46,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          20086,
+          105132,
+          53316
+        ],
+        "top_3_scores": [
+          0.8868239521980286,
+          0.8744677305221558,
+          0.8566502332687378
+        ],
+        "top_3_full_dataset_indices": [
+          933065,
+          933062,
+          933068
+        ]
+      }
+    }
+  },
+  "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/02445.png": {
+    "image_path": "/scratch/avs7793/work_done/poseembroider/new_model/src/data/processed/images/subject_7/take_3/02445.png",
+    "full_dataset_idx": 940930,
+    "test_dataset_idx": 87241,
+    "query_combinations": {
+      "image_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pose",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 17,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          84339,
+          57689,
+          141340
+        ],
+        "top_3_scores": [
+          0.44373977184295654,
+          0.44309908151626587,
+          0.4392744302749634
+        ],
+        "top_3_full_dataset_indices": [
+          940944,
+          923930,
+          940941
+        ]
+      },
+      "image_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image",
+        "target_modality": "pressure",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          50792,
+          87241,
+          173103
+        ],
+        "top_3_scores": [
+          0.7656104564666748,
+          0.7430275082588196,
+          0.7358241081237793
+        ],
+        "top_3_full_dataset_indices": [
+          940935,
+          940930,
+          923914
+        ]
+      },
+      "pose_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "image",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 6,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          202661,
+          36958,
+          233766
+        ],
+        "top_3_scores": [
+          0.8719548583030701,
+          0.8656607866287231,
+          0.8428331017494202
+        ],
+        "top_3_full_dataset_indices": [
+          940909,
+          940908,
+          940913
+        ]
+      },
+      "pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose",
+        "target_modality": "pressure",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          50792,
+          87241,
+          87182
+        ],
+        "top_3_scores": [
+          0.7523877024650574,
+          0.7221666574478149,
+          0.7013266086578369
+        ],
+        "top_3_full_dataset_indices": [
+          940935,
+          940930,
+          940921
+        ]
+      },
+      "pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "image",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 5,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          87182,
+          36958,
+          202661
+        ],
+        "top_3_scores": [
+          0.8321571350097656,
+          0.8267502784729004,
+          0.821580708026886
+        ],
+        "top_3_full_dataset_indices": [
+          940921,
+          940908,
+          940909
+        ]
+      },
+      "pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pressure",
+        "target_modality": "pose",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 24,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          81570,
+          53711,
+          172027
+        ],
+        "top_3_scores": [
+          0.576086699962616,
+          0.574657142162323,
+          0.5724582672119141
+        ],
+        "top_3_full_dataset_indices": [
+          906903,
+          906904,
+          906905
+        ]
+      },
+      "image+pose_to_pressure": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pose",
+        "target_modality": "pressure",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 2,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          50792,
+          87241,
+          87182
+        ],
+        "top_3_scores": [
+          0.791115939617157,
+          0.7699561715126038,
+          0.7266902923583984
+        ],
+        "top_3_full_dataset_indices": [
+          940935,
+          940930,
+          940921
+        ]
+      },
+      "image+pressure_to_pose": {
+        "criteria": "targeted_retrieval",
+        "query_type": "image+pressure",
+        "target_modality": "pose",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 15,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          255961,
+          42620,
+          122190
+        ],
+        "top_3_scores": [
+          0.5790427923202515,
+          0.5768764019012451,
+          0.5767104029655457
+        ],
+        "top_3_full_dataset_indices": [
+          906921,
+          906912,
+          906910
+        ]
+      },
+      "pose+pressure_to_image": {
+        "criteria": "targeted_retrieval",
+        "query_type": "pose+pressure",
+        "target_modality": "image",
+        "query_idx": 17,
+        "test_dataset_query_idx": 87241,
+        "ground_truth_rank": 4,
+        "total_candidates": 261877,
+        "top_3_indices": [
+          36958,
+          202661,
+          87182
+        ],
+        "top_3_scores": [
+          0.8932268619537354,
+          0.8912138938903809,
+          0.8709200620651245
+        ],
+        "top_3_full_dataset_indices": [
+          940908,
+          940909,
+          940921
+        ]
+      }
+    }
+  }
+}

@@ -45,36 +45,59 @@ def test(x):
     model.eval()
     total_squared_error = 0
     total_elements = 0
+    all_errors = []  # Store all individual errors for standard deviation calculation
+    
     with torch.no_grad():
         test_progress_bar = tqdm(test_loader, desc="Testing")
         for i, batch in enumerate(test_progress_bar):
             poses = batch['pose'].to(device) # Shape: (512, 66)
             images = batch['image'].to(device) # Shape: (512, 3, 256, 192)
             pressures = batch['pressure_map'].to(device) # Shape: (512, 2520)
-            print(images.shape)
-            print(poses.shape)
-            print(pressures.shape)
+            # print(images.shape)
+            # print(poses.shape)
+            # print(pressures.shape)
             outputs = model(pose=poses)
             outputs = torch.expm1(outputs)
 
+            # Calculate individual errors (absolute differences)
+            individual_errors = torch.abs(outputs - pressures)  # Element-wise absolute errors
+            all_errors.append(individual_errors.cpu())  # Move to CPU and store
+            
             # This calculates the average MSE for the current batch
-            # loss = loss_fn(outputs, pressures)
+            loss = loss_fn(outputs, pressures)
+            loss = torch.sqrt(loss)
 
             # `pressures.numel()` is 512 * 1 * 42 * 60 = 1,290,240
             # We multiply the batch's average error by its number of elements
             # to get the sum of all squared errors for this batch.
-            # total_squared_error += loss.item() * pressures.numel()
+            total_squared_error += loss.item() * pressures.numel()
 
             # We keep a running total of all elements processed
-            # total_elements += pressures.numel()
-            # test_progress_bar.set_postfix(batch_mse=loss.item())
+            total_elements += pressures.numel()
+            test_progress_bar.set_postfix(batch_mse=loss.item())
 
-    # Finally, we divide the total sum of squared errors by the
-    # total number of elements to get the true MSE over the entire dataset.
+    # Calculate RMSE
     average_mse = total_squared_error / total_elements if total_elements > 0 else 0.0
-    return average_mse
+    
+    # Calculate standard deviation of errors
+    all_errors = torch.cat(all_errors, dim=0)  # Concatenate all batch errors
+    error_std = torch.std(all_errors).item()   # Calculate standard deviation
+    error_mean = torch.mean(all_errors).item() # Mean absolute error
+    
+    return {
+        'rmse': average_mse,
+        'error_std': error_std,
+        'mae': error_mean  # Mean Absolute Error as bonus
+    }
 
 if __name__ == "__main__":
-    train_loss = test(0)
-    test_loss = test(232)
-    print(f"Train loss: {train_loss}, Test loss: {test_loss}")
+    train_results = test(0)
+    test_results = test(232)
+    
+    print(f"Train RMSE: {train_results['rmse']:.6f}")
+    print(f"Train Error Std: {train_results['error_std']:.6f}")
+    print(f"Train MAE: {train_results['mae']:.6f}")
+    
+    print(f"Test RMSE: {test_results['rmse']:.6f}")
+    print(f"Test Error Std: {test_results['error_std']:.6f}")
+    print(f"Test MAE: {test_results['mae']:.6f}")

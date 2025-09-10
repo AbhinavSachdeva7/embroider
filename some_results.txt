@@ -1,0 +1,19 @@
+
+// ================================================================================
+// NEEDLE IN HAYSTACK RETRIEVAL RESULTS
+// ================================================================================
+// Total samples processed: 18
+// Total query combinations: 162
+// Gallery size (total candidates): 261877
+// Expected combinations: 162
+                                                                                 
+// OVERALL RETRIEVAL PERFORMANCE:  
+//   Mean rank: 15.71     
+//   Median rank: 10.00    
+//   Min rank: 1                                                                                                                                                     
+//   Max rank: 155                                                   
+
+// SUCCESS RATES:
+//   Rank 1 (Perfect): 6/162 (3.7%)
+//   Top 3: 33/162 (20.4%)
+//   Top 10: 85/162 (52.5%)
